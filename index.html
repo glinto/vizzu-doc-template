@@ -107,8 +107,9 @@
 		})();
 
 		document.addEventListener("DOMContentLoaded", function (event) {
-			document.querySelector('.action-sidebar-toogle').addEventListener('click', () => {
+			document.querySelector('.action-sidebar-toogle').addEventListener('click', (event) => {
 				$vizzuNS.toggleSideBar();
+				event.preventDefault();
 			});
 		});
 
@@ -121,7 +122,8 @@
 	<div class="vizzu-header bg-light">
 		<div class="container">
 			<div class="d-flex align-items-center ">
-				<div class="py-2 action-sidebar-toogle fs-5" href="#"><i class="bi-list"></i></div>
+				<div class="py-2 action-sidebar-toogle fs-5"><a class="text-dark" href="#"><i class="bi-list"></i></a>
+				</div>
 				<div class="p-2"><img src="images/logo.svg" height="24px" alt="Vizzu"></div>
 				<div class="p-2">Documentation</div>
 			</div>
