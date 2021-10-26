@@ -103,10 +103,12 @@
 		}
 
 		/* Basic element styles */
-		pre {
+		.snippet pre {
 			background-color: var(--bs-light);
 			border: 1px solid var(--bs-gray-300);
 			padding: 1em;
+			white-space: pre-wrap;
+			word-wrap: break-word;
 		}
 
 		h2 {
@@ -216,7 +218,8 @@
 				<div class="snippet">
 					<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">Vizzu</span> <span class="hljs-keyword">from</span> 
-  <span class="hljs-string">'https://cdn.jsdelivr.net/npm/vizzu@0.3.1/dist/vizzu.min.js'</span>;
+  <span class="hljs-string">'https://cdn.jsdelivr.net/'+
+  'npm/vizzu@0.3.1/dist/vizzu.min.js'</span>;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 
