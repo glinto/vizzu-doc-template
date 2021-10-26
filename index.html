@@ -36,13 +36,14 @@
 			margin-top: 3rem;
 		}
 
-
 		.vizzu-sidebar {
 			min-width: var(--sidebar-width);
 			max-width: var(--sidebar-width);
 			z-index: 1;
 			position: fixed;
-			height: 100vh;
+			top: 3rem;
+			bottom: 0;
+			overflow: scroll;
 			box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
 			/* Sidebar styled for default mobile view, its not visible and is slid out to the left by its entire width */
 			visibility: hidden;
