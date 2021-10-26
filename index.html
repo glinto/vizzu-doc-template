@@ -67,6 +67,20 @@
 			padding: 1.5rem 0;
 		}
 
+		/* Semi transparent cover om the page when sidebar is drawn */
+		.vizzu-sidebar-scrim {
+			display: none;
+			background-color: rgba(0, 0, 0, 0.2);
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+		}
+
+		.vizzu-page-sidebar-toggled ~ .vizzu-sidebar-scrim {
+			display: block;
+		}
+
 
 		/* This is the 'md' breakpoint in Bootstrap
 		   We will style non-mobile view with the media query below
@@ -100,6 +114,12 @@
 				visibility: hidden;
 				margin-left: calc(var(--sidebar-width) * -1);
 			}
+
+			/* On desktop we do not show the sidebar scrim, because sidebar does not cover content */
+			.vizzu-page-sidebar-toggled ~ .vizzu-sidebar-scrim {
+				display: none;
+			}
+			
 		}
 
 		/* Basic element styles */
@@ -142,14 +162,22 @@
 			function toggleSideBar() {
 				document.querySelector('.vizzu-page').classList.toggle('vizzu-page-sidebar-toggled');
 			}
+			function closeSideBar() {
+				document.querySelector('.vizzu-page').classList.remove('vizzu-page-sidebar-toggled');
+			}
 			return {
-				toggleSideBar: toggleSideBar
+				toggleSideBar: toggleSideBar,
+				closeSideBar: closeSideBar
 			};
 		})();
 
 		document.addEventListener("DOMContentLoaded", function (event) {
 			document.querySelector('.action-sidebar-toogle').addEventListener('click', (event) => {
 				$vizzuNS.toggleSideBar();
+				event.preventDefault();
+			});
+			document.querySelector('.vizzu-sidebar-scrim').addEventListener('click', (event) => {
+				$vizzuNS.closeSideBar();
 				event.preventDefault();
 			});
 		});
@@ -174,8 +202,8 @@
 	</div>
 
 	<!-- Page -->
-	<div class="container">
-		<div class="d-flex align-items-stretch vizzu-page">
+	<div class="container vizzu-page">
+		<div class="d-flex align-items-stretch ">
 			<!-- Sidebar -->
 			<div class="bg-primary vizzu-sidebar bg-dark text-light p-4">
 				<ul class="list-unstyled">
@@ -508,8 +536,11 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 				</div>
 
 			</div>
+
 		</div>
+
 	</div>
+	<div class="vizzu-sidebar-scrim"></div>
 </body>
 
 </html>
