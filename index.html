@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vizzu Documentation</title>
+	<link rel="icon" href="images/favicon.svg">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+	<style>
+		:root {
+			/* Set a variable for the sidebar width */
+			--sidebar-width: 250px;
+			/* Override bootstrap colors with Vizzu dark and primary blue */
+			--bs-dark: #333;
+			--bs-dark-rgb: 48, 48, 48;
+			--bs-primary: #0085c5;
+			--bs-primary-rgb: 0, 133, 197;
+		}
+
+		/* The header is fixed on top so you cannot scroll it out */
+		.vizzu-header {
+			position: fixed;
+			box-sizing: border-box;
+			width: 100%;
+			top: 0;
+		}
+
+		/* The rest of the page maintains a margin so it does not slip under the header */
+		.vizzu-page {
+			margin-top: 3rem;
+		}
+
+
+		.vizzu-sidebar {
+			min-width: var(--sidebar-width);
+			max-width: var(--sidebar-width);
+			z-index: 1;
+			position: fixed;
+			height: 100vh;
+			box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
+			/* Sidebar styled for default mobile view, its not visible and is slid out to the left by its entire width */
+			visibility: hidden;
+			margin-left: calc(var(--sidebar-width) * -1);
+			transition: margin 0.3s;
+		}
+
+		/* Style bar, mobiled view, toggled state. Gets visible and is slid in place (no margin) */
+		.vizzu-page-sidebar-toggled .vizzu-sidebar {
+			visibility: visible;
+			margin-left: 0;
+		}
+
+		/* Mobile view content onyl needs top and bottom paddings */
+		.vizzu-content {
+			padding: 1.5rem 0;
+		}
+
+
+		/* This is the 'md' breakpoint in Bootstrap
+		   We will style non-mobile view with the media query below
+		 */
+		@media (min-width: 768px) {
+
+			/* Content default view. Note, that in desktop mode, the sidebar is shown by default, 
+			which is the opposite behavior than on mobile */
+			.vizzu-content {
+				/* Content needs to maintain margin from the left edge, so it does not get covered */
+				margin-left: var(--sidebar-width);
+				/* Content needs vertical _and_ horizontal padding */
+				padding: 1.5rem;
+			}
+
+			/* Content nedds only vert padding and need no margin if the sidebar is closed */
+			.vizzu-page-sidebar-toggled .vizzu-content {
+				margin-left: 0;
+				padding: 1.5rem 0;
+			}
+
+			/* The sidebar, by default, is visible, and does not have shadow (it does not overlap content) */
+			.vizzu-sidebar {
+				box-shadow: none;
+				margin-left: 0;
+				visibility: visible;
+			}
+
+			/* The sidebar, when toggled, slides out, becomes invisible */
+			.vizzu-page-sidebar-toggled .vizzu-sidebar {
+				visibility: hidden;
+				margin-left: calc(var(--sidebar-width) * -1);
+			}
+		}
+	</style>
+	<script>
+		const $vizzuNS = (() => {
+			function toggleSideBar() {
+				document.querySelector('.vizzu-page').classList.toggle('vizzu-page-sidebar-toggled');
+			}
+			return {
+				toggleSideBar: toggleSideBar
+			};
+		})();
+
+		document.addEventListener("DOMContentLoaded", function (event) {
+			document.querySelector('.action-sidebar-toogle').addEventListener('click', () => {
+				$vizzuNS.toggleSideBar();
+			});
+		});
+
+
+	</script>
+</head>
+
+<body>
+	<!-- Header -->
+	<div class="vizzu-header bg-light">
+		<div class="container">
+			<div class="d-flex align-items-center ">
+				<div class="py-2 action-sidebar-toogle fs-5" href="#"><i class="bi-list"></i></div>
+				<div class="p-2"><img src="images/logo.svg" height="24px" alt="Vizzu"></div>
+				<div class="p-2">Documentation</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Page -->
+	<div class="container">
+		<div class="d-flex align-items-stretch vizzu-page">
+			<!-- Sidebar -->
+			<div class="bg-primary vizzu-sidebar bg-dark text-light p-4">
+				<ul class="list-unstyled">
+					<li>Tutorial
+						<ul class="submenu">
+							<li>Intro</li>
+							<li>Data</li>
+							<li>Axes, title, tooltip</li>
+							<li>Geometry</li>
+
+						</ul>
+					</li>
+					<li>Examples
+						<ul>
+							<li>Static Charts</li>
+							<li>Animated Charts</li>
+						</ul>
+					</li>
+					<li>
+						Reference
+					</li>
+				</ul>
+
+			</div>
+
+			<!-- Content -->
+			<div class="vizzu-content flex-grow-1">
+				<p>
+					Quisque nec hendrerit risus. Pellentesque finibus id arcu cursus luctus. Nunc felis ligula, lacinia
+					sed arcu sed, finibus condimentum diam. Fusce interdum posuere luctus. Proin non elit congue,
+					fringilla enim eget, consequat magna. Integer vulputate, purus ut rhoncus malesuada, velit elit
+					ornare orci, in posuere magna felis quis sem. Integer eleifend risus in mi rhoncus, a congue tortor
+					feugiat. Quisque accumsan lorem et orci fermentum accumsan. Quisque consectetur lorem neque, sit
+					amet ultricies augue convallis quis.
+				</p>
+				<p>
+					Phasellus consectetur laoreet leo, eu tristique nisl suscipit bibendum. In vel nibh id risus
+					molestie tempor ac ut nisl. Ut a risus vitae nisl vulputate rutrum vel sit amet nisl. Cras id nibh
+					eros. Praesent nec lorem quam. Quisque porttitor accumsan erat, eu pellentesque tellus interdum nec.
+					Morbi tincidunt sem sed tortor elementum pellentesque. Nulla ut risus viverra, tempor quam in,
+					elementum ante. Curabitur sollicitudin gravida maximus.
+				</p>
+				<p>
+					Quisque nec hendrerit risus. Pellentesque finibus id arcu cursus luctus. Nunc felis ligula, lacinia
+					sed arcu sed, finibus condimentum diam. Fusce interdum posuere luctus. Proin non elit congue,
+					fringilla enim eget, consequat magna. Integer vulputate, purus ut rhoncus malesuada, velit elit
+					ornare orci, in posuere magna felis quis sem. Integer eleifend risus in mi rhoncus, a congue tortor
+					feugiat. Quisque accumsan lorem et orci fermentum accumsan. Quisque consectetur lorem neque, sit
+					amet ultricies augue convallis quis.
+				</p>
+				<p>
+					Phasellus consectetur laoreet leo, eu tristique nisl suscipit bibendum. In vel nibh id risus
+					molestie tempor ac ut nisl. Ut a risus vitae nisl vulputate rutrum vel sit amet nisl. Cras id nibh
+					eros. Praesent nec lorem quam. Quisque porttitor accumsan erat, eu pellentesque tellus interdum nec.
+					Morbi tincidunt sem sed tortor elementum pellentesque. Nulla ut risus viverra, tempor quam in,
+					elementum ante. Curabitur sollicitudin gravida maximus.
+				</p>
+				<p>
+					Quisque nec hendrerit risus. Pellentesque finibus id arcu cursus luctus. Nunc felis ligula, lacinia
+					sed arcu sed, finibus condimentum diam. Fusce interdum posuere luctus. Proin non elit congue,
+					fringilla enim eget, consequat magna. Integer vulputate, purus ut rhoncus malesuada, velit elit
+					ornare orci, in posuere magna felis quis sem. Integer eleifend risus in mi rhoncus, a congue tortor
+					feugiat. Quisque accumsan lorem et orci fermentum accumsan. Quisque consectetur lorem neque, sit
+					amet ultricies augue convallis quis.
+				</p>
+				<p>
+					Phasellus consectetur laoreet leo, eu tristique nisl suscipit bibendum. In vel nibh id risus
+					molestie tempor ac ut nisl. Ut a risus vitae nisl vulputate rutrum vel sit amet nisl. Cras id nibh
+					eros. Praesent nec lorem quam. Quisque porttitor accumsan erat, eu pellentesque tellus interdum nec.
+					Morbi tincidunt sem sed tortor elementum pellentesque. Nulla ut risus viverra, tempor quam in,
+					elementum ante. Curabitur sollicitudin gravida maximus.
+				</p>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>
