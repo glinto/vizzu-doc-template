@@ -74,10 +74,11 @@
 			position: fixed;
 			top: 0;
 			bottom: 0;
+			left: 0;
 			width: 100%;
 		}
 
-		.vizzu-page-sidebar-toggled ~ .vizzu-sidebar-scrim {
+		.vizzu-page-sidebar-toggled>.vizzu-sidebar-scrim {
 			display: block;
 		}
 
@@ -116,10 +117,10 @@
 			}
 
 			/* On desktop we do not show the sidebar scrim, because sidebar does not cover content */
-			.vizzu-page-sidebar-toggled ~ .vizzu-sidebar-scrim {
+			.vizzu-page-sidebar-toggled>.vizzu-sidebar-scrim {
 				display: none;
 			}
-			
+
 		}
 
 		/* Basic element styles */
@@ -538,9 +539,9 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 			</div>
 
 		</div>
-
+		<div class="vizzu-sidebar-scrim"></div>
 	</div>
-	<div class="vizzu-sidebar-scrim"></div>
+
 </body>
 
 </html>
