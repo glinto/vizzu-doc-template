@@ -78,8 +78,29 @@
 			width: 100%;
 		}
 
+		/* On mobile, the scrim is visible if the sidebar is drwan out */
 		.vizzu-page-sidebar-toggled>.vizzu-sidebar-scrim {
 			display: block;
+		}
+
+		/* Styling sidebar links */
+		.vizzu-sidebar,
+		.vizzu-sidebar a {
+			color: var(--bs-gray-500);
+			text-decoration: none;
+		}
+
+		.vizzu-sidebar a[href].active,
+		.vizzu-sidebar a[href]:hover {
+			color: white;
+		}
+
+		/* Anchor trik to scroll to proper position */
+		a.anchor {
+			display: block;
+			position: relative;
+			top: -5rem;
+			visibility: hidden;
 		}
 
 
@@ -157,6 +178,10 @@
 			font-size: 13px;
 			font-family: 'Roboto';
 		}
+
+		html:not([data-scroll='0']) .vizzu-header {
+			box-shadow: rgba(0, 0, 0, .5) 0 1px 10px;
+		}
 	</style>
 	<script>
 		const $vizzuNS = (() => {
@@ -166,6 +191,49 @@
 			function closeSideBar() {
 				document.querySelector('.vizzu-page').classList.remove('vizzu-page-sidebar-toggled');
 			}
+
+			const SCROLLSPY_OFFSET = 100;
+
+			function scrollSpyUpdate(position) {
+				let elems = document.querySelectorAll('.vizzu-sidebar li a[href]');
+				let bodyRect = document.body.getBoundingClientRect();
+				let lastElement = undefined;
+				elems.forEach((elem) => {
+					elem.classList.remove('active');
+					let targetElem = document.getElementById(elem.getAttribute('href').substr(1));
+					if (targetElem) {
+						let targetRect = targetElem.getBoundingClientRect();
+						if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < position)
+							lastElement = elem;
+					}
+				});
+				if (lastElement)
+					lastElement.classList.add('active');
+			}
+
+			// Animation frame based and debounced scroll updater
+			(function debouncedScrollUpdater() {
+				let ticking = false;
+				const frameScroll = () => {
+					if (ticking) {
+						return;
+					}
+					requestAnimationFrame(() => {
+						setScroll();
+						scrollSpyUpdate(window.scrollY);
+						ticking = false;
+					});
+				};
+				const setScroll = () => {
+					document.documentElement.dataset.scroll = window.scrollY;
+				}
+				document.addEventListener('scroll',
+					frameScroll,
+					{ passive: true });
+
+				setScroll();
+			})();
+
 			return {
 				toggleSideBar: toggleSideBar,
 				closeSideBar: closeSideBar
@@ -210,8 +278,8 @@
 				<ul class="list-unstyled">
 					<li>Tutorial
 						<ul class="submenu">
-							<li>Intro</li>
-							<li>Data</li>
+							<li><a href="#chapter-0.0">Intro</a></li>
+							<li><a href="#chapter-0.1">Data</a></li>
 							<li>Axes, title, tooltip</li>
 							<li>Geometry</li>
 
@@ -232,7 +300,8 @@
 
 			<!-- Content -->
 			<div class="vizzu-content flex-grow-1">
-				<h2 id="chapter-0.0" class="subtitle">Intro</h2>
+				<a class="anchor" id="chapter-0.0"></a>
+				<h2 class="subtitle">Intro</h2>
 				<p class="paragraph">This is the tutorial of Vizzu - a free, open-source Javascript library for
 					building animated charts, data stories, and interactive explorers.
 					It is an excellent place to start using Vizzu, as it walks you through the
@@ -305,7 +374,8 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 					<li><em>style</em> - this is where you can set how your chart looks.</li>
 				</ul>
 
-				<h2 id="chapter-0.1" class="subtitle">Data</h2>
+				<a class="anchor" id="chapter-0.1"></a>
+				<h2 class="subtitle">Data</h2>
 				<h3 id="data-types">Data types</h3>
 				<p class="paragraph">Vizzu currently supports two types of data series: dimensions and measures.
 					Dimensions slice the data cube Vizzu uses, whereas measures are values within the cube.</p>
