@@ -257,6 +257,12 @@
 				$vizzuNS.closeSideBar();
 				event.preventDefault();
 			});
+			/* When we click a link on the sidebar, it will close the sidebar (on mobiles) */
+			document.querySelectorAll('.vizzu-sidebar a[href]').forEach((element) => {
+				element.addEventListener('click', (event) => {
+					$vizzuNS.closeSideBar();
+				});
+			});
 		});
 
 
