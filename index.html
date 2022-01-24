@@ -135,21 +135,23 @@
 			<div class="vizzu-content flex-grow-1">
 				<h1>Tutorial</h1>
 
-				<a class="anchor" id="chapter-0.0"></a>
-				<h2 class="subtitle">Intro</h2>
-				<p class="paragraph">This is the tutorial of Vizzu - a free, open-source Javascript library for
-					building animated charts, data stories, and interactive explorers.
-					It is an excellent place to start using Vizzu, as it walks you through the
-					installation and initialization of the library, introduces the logic it employs
-					and the different settings to control how your charts look and behave. </p>
-				<p class="paragraph">Starting from the <a href="#chapter-0.2">Axes, title, tooltip</a> chapter, you can
-					see code
-					snippets, and when you click on them, you can see how the code affects the chart
-					on the right side of the screen.</p>
-				<h3 id="installation">Installation</h3>
-				<p class="paragraph">Import the library into a JavaScript file or script tag in your web page</p>
-				<div class="snippet">
-					<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="language-javascript">
+				<div data-title="Intro">
+					<a class="anchor" id="chapter-0.0"></a>
+					<h2 class="subtitle">Intro</h2>
+					<p class="paragraph">This is the tutorial of Vizzu - a free, open-source Javascript library for
+						building animated charts, data stories, and interactive explorers.
+						It is an excellent place to start using Vizzu, as it walks you through the
+						installation and initialization of the library, introduces the logic it employs
+						and the different settings to control how your charts look and behave. </p>
+					<p class="paragraph">Starting from the <a href="#chapter-0.2">Axes, title, tooltip</a> chapter, you
+						can
+						see code
+						snippets, and when you click on them, you can see how the code affects the chart
+						on the right side of the screen.</p>
+					<h3 id="installation">Installation</h3>
+					<p class="paragraph">Import the library into a JavaScript file or script tag in your web page</p>
+					<div class="snippet">
+						<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">Vizzu</span> <span class="hljs-keyword">from</span> 
   <span class="hljs-string">'https://cdn.jsdelivr.net/'+
   'npm/vizzu@0.3.1/dist/vizzu.min.js'</span>;
@@ -157,29 +159,29 @@
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">Alternatively, you can install Vizzu from <a
-						href="https://www.npmjs.com/package/vizzu">npm</a></p>
-				<div class="snippet">
-					<pre><code class="language-shell">npm install vizzu
+					</div>
+					<p class="paragraph">Alternatively, you can install Vizzu from <a
+							href="https://www.npmjs.com/package/vizzu">npm</a></p>
+					<div class="snippet">
+						<pre><code class="language-shell">npm install vizzu
 </code></pre>
 
 
-				</div>
-				<h3 id="initialization">Initialization</h3>
-				<p class="paragraph">To show a Vizzu chart create a placeholder element that will contain the
-					rendered chart.</p>
-				<div class="snippet">
-					<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myVizzu"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:800px; height:480px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					</div>
+					<h3 id="initialization">Initialization</h3>
+					<p class="paragraph">To show a Vizzu chart create a placeholder element that will contain the
+						rendered chart.</p>
+					<div class="snippet">
+						<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myVizzu"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:800px; height:480px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">Create a new object instance of the Vizzu class, add it to a variable,
-					initialize the library, and then you can start setting up the first chart by
-					calling the animate method.</p>
-				<div class="snippet">
-					<pre><code class="language-javascript"><span class="hljs-keyword">let</span> chart = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vizzu</span>(<span class="hljs-string">'myVizzu'</span>)
+					</div>
+					<p class="paragraph">Create a new object instance of the Vizzu class, add it to a variable,
+						initialize the library, and then you can start setting up the first chart by
+						calling the animate method.</p>
+					<div class="snippet">
+						<pre><code class="language-javascript"><span class="hljs-keyword">let</span> chart = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vizzu</span>(<span class="hljs-string">'myVizzu'</span>)
 
 chart.<span class="hljs-property">initializing</span>.<span class="hljs-title function_">then</span>(
   <span class="hljs-function"><span class="hljs-params">chart</span> =&gt;</span> chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-comment">/* ... */</span> }) 
@@ -187,130 +189,137 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 </code></pre>
 
 
+					</div>
+					<h3 id="the-basic-logic-of-vizzu">The basic logic of Vizzu</h3>
+					<p class="paragraph">The foundation of a Vizzu chart is the animation. The animation contains states
+						describing the chart's configuration, such as the data series, coordinate system, labels,
+						titles,
+						etc. A static chart is the result of a single animation state. When there are more states, Vizzu
+						automatically transitions between these. The animate method initiates the animation into a new
+						state
+						by describing the new chart and how Vizzu should transition to it. The return value of the
+						animate
+						method is a promise that will be resolved after the animation is completed. Using this logic you
+						can
+						create a promise chain of animation from state to state.</p><img src="images/api-overview.svg"
+						width="100%" alt="Illustration of Vizzu's promise chain">
+
+					<p class="paragraph">The animate method has two parameters in total. The first parameter sets the
+						chart, and the (optional) second determines how Vizzu should animate to that state. </p>
+					<p class="paragraph">The first parameter has the following three properties:</p>
+					<ul>
+						<li><em>data</em> - this is where you add the data that you want to put on the charts.</li>
+						<li><em>config</em> - this is where you can add or remove series on the channels and
+							set the general settings of the chart like the chart title, the geometry, the alignment etc.
+						</li>
+						<li><em>style</em> - this is where you can set how your chart looks.</li>
+					</ul>
 				</div>
-				<h3 id="the-basic-logic-of-vizzu">The basic logic of Vizzu</h3>
-				<p class="paragraph">The foundation of a Vizzu chart is the animation. The animation contains states
-					describing the chart's configuration, such as the data series, coordinate system, labels, titles,
-					etc. A static chart is the result of a single animation state. When there are more states, Vizzu
-					automatically transitions between these. The animate method initiates the animation into a new state
-					by describing the new chart and how Vizzu should transition to it. The return value of the animate
-					method is a promise that will be resolved after the animation is completed. Using this logic you can
-					create a promise chain of animation from state to state.</p><img src="images/api-overview.svg"
-					width="100%" alt="Illustration of Vizzu's promise chain">
 
-				<p class="paragraph">The animate method has two parameters in total. The first parameter sets the
-					chart, and the (optional) second determines how Vizzu should animate to that state. </p>
-				<p class="paragraph">The first parameter has the following three properties:</p>
-				<ul>
-					<li><em>data</em> - this is where you add the data that you want to put on the charts.</li>
-					<li><em>config</em> - this is where you can add or remove series on the channels and
-						set the general settings of the chart like the chart title, the geometry, the alignment etc.
-					</li>
-					<li><em>style</em> - this is where you can set how your chart looks.</li>
-				</ul>
-
-				<a class="anchor" id="chapter-0.1"></a>
-				<h2 class="subtitle">Data</h2>
-				<h3 id="data-types">Data types</h3>
-				<p class="paragraph">Vizzu currently supports two types of data series: dimensions and measures.
-					Dimensions slice the data cube Vizzu uses, whereas measures are values within the cube.</p>
-				<p class="paragraph">Dimensions are categorical series that can contain strings and numbers, but
-					both will be treated as strings. Temporal data such as dates or timestamps
-					should also be added as dimensions. Vizzu will draw the elements on the chart
-					in the order they are provided in the data set by default. Thus we suggest
-					adding temporal data in a sorted format from oldest to newest.</p>
-				<p class="paragraph">Measure in the current beta phase can only be numerical.</p>
-				<h3 id="adding-data">Adding data</h3>
-				<p class="paragraph">There are multiple ways you can add data to Vizzu:</p>
-				<ul>
-					<li>Specified by series - column after column if you think of a spreadsheet</li>
-					<li>Specified by records - row after row.</li>
-					<li>Data cube form</li>
-				</ul>
-				<p class="paragraph">Elements with a missing value should contain the number zero. 'null',
-					'undefined' and empty cells will result in an error. In case of dimensions,
-					add '' as a value to have a category without a name. </p>
-				<p class="paragraph">In the first two cases, data has to be in first normal form. Here is an example of
-					that:</p>
-				<table>
-					<thead>
-						<tr>
-							<th>Genres</th>
-							<th>Types</th>
-							<th>Popularity</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Pop</td>
-							<td>Hard</td>
-							<td>114</td>
-						</tr>
-						<tr>
-							<td>Rock</td>
-							<td>Hard</td>
-							<td>96</td>
-						</tr>
-						<tr>
-							<td>Jazz</td>
-							<td>Hard</td>
-							<td>78</td>
-						</tr>
-						<tr>
-							<td>Metal</td>
-							<td>Hard</td>
-							<td>52</td>
-						</tr>
-						<tr>
-							<td>Pop</td>
-							<td>Smooth</td>
-							<td>56</td>
-						</tr>
-						<tr>
-							<td>Rock</td>
-							<td>Smooth</td>
-							<td>36</td>
-						</tr>
-						<tr>
-							<td>Jazz</td>
-							<td>Smooth</td>
-							<td>174</td>
-						</tr>
-						<tr>
-							<td>Metal</td>
-							<td>Smooth</td>
-							<td>121</td>
-						</tr>
-						<tr>
-							<td>Pop</td>
-							<td>Experimental</td>
-							<td>127</td>
-						</tr>
-						<tr>
-							<td>Rock</td>
-							<td>Experimental</td>
-							<td>83</td>
-						</tr>
-						<tr>
-							<td>Jazz</td>
-							<td>Experimental</td>
-							<td>94</td>
-						</tr>
-						<tr>
-							<td>Metal</td>
-							<td>Experimental</td>
-							<td>58</td>
-						</tr>
-					</tbody>
-				</table>
-				<p class="paragraph">In the type parameter, you can set if a series is a dimension or a measure.
-					Adding the type parameter is optional. If omitted, Vizzu will automatically
-					select the type depending on the first element of the values array using the typeof
-					operator. If all items are numbers, it will be declared as a measure, in any
-					other case, a dimension.</p>
-				<p class="paragraph">Data specified by series:</p>
-				<div class="snippet">
-					<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
+				<div data-title="Data">
+					<a class="anchor" id="chapter-0.1"></a>
+					<h2 class="subtitle">Data</h2>
+					<h3 id="data-types">Data types</h3>
+					<p class="paragraph">Vizzu currently supports two types of data series: dimensions and measures.
+						Dimensions slice the data cube Vizzu uses, whereas measures are values within the cube.</p>
+					<p class="paragraph">Dimensions are categorical series that can contain strings and numbers, but
+						both will be treated as strings. Temporal data such as dates or timestamps
+						should also be added as dimensions. Vizzu will draw the elements on the chart
+						in the order they are provided in the data set by default. Thus we suggest
+						adding temporal data in a sorted format from oldest to newest.</p>
+					<p class="paragraph">Measure in the current beta phase can only be numerical.</p>
+					<h3 id="adding-data">Adding data</h3>
+					<p class="paragraph">There are multiple ways you can add data to Vizzu:</p>
+					<ul>
+						<li>Specified by series - column after column if you think of a spreadsheet</li>
+						<li>Specified by records - row after row.</li>
+						<li>Data cube form</li>
+					</ul>
+					<p class="paragraph">Elements with a missing value should contain the number zero. 'null',
+						'undefined' and empty cells will result in an error. In case of dimensions,
+						add '' as a value to have a category without a name. </p>
+					<p class="paragraph">In the first two cases, data has to be in first normal form. Here is an example
+						of
+						that:</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Genres</th>
+								<th>Types</th>
+								<th>Popularity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Pop</td>
+								<td>Hard</td>
+								<td>114</td>
+							</tr>
+							<tr>
+								<td>Rock</td>
+								<td>Hard</td>
+								<td>96</td>
+							</tr>
+							<tr>
+								<td>Jazz</td>
+								<td>Hard</td>
+								<td>78</td>
+							</tr>
+							<tr>
+								<td>Metal</td>
+								<td>Hard</td>
+								<td>52</td>
+							</tr>
+							<tr>
+								<td>Pop</td>
+								<td>Smooth</td>
+								<td>56</td>
+							</tr>
+							<tr>
+								<td>Rock</td>
+								<td>Smooth</td>
+								<td>36</td>
+							</tr>
+							<tr>
+								<td>Jazz</td>
+								<td>Smooth</td>
+								<td>174</td>
+							</tr>
+							<tr>
+								<td>Metal</td>
+								<td>Smooth</td>
+								<td>121</td>
+							</tr>
+							<tr>
+								<td>Pop</td>
+								<td>Experimental</td>
+								<td>127</td>
+							</tr>
+							<tr>
+								<td>Rock</td>
+								<td>Experimental</td>
+								<td>83</td>
+							</tr>
+							<tr>
+								<td>Jazz</td>
+								<td>Experimental</td>
+								<td>94</td>
+							</tr>
+							<tr>
+								<td>Metal</td>
+								<td>Experimental</td>
+								<td>58</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="paragraph">In the type parameter, you can set if a series is a dimension or a measure.
+						Adding the type parameter is optional. If omitted, Vizzu will automatically
+						select the type depending on the first element of the values array using the typeof
+						operator. If all items are numbers, it will be declared as a measure, in any
+						other case, a dimension.</p>
+					<p class="paragraph">Data specified by series:</p>
+					<div class="snippet">
+						<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
   <span class="hljs-attr">series</span>: [
     {
       <span class="hljs-attr">name</span>: <span class="hljs-string">'Genres'</span>, 
@@ -340,10 +349,10 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">Data specified by records:</p>
-				<div class="snippet">
-					<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
+					</div>
+					<p class="paragraph">Data specified by records:</p>
+					<div class="snippet">
+						<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
   <span class="hljs-attr">series</span>: [
     { <span class="hljs-attr">name</span>: <span class="hljs-string">'Genres'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'dimension'</span> },
     { <span class="hljs-attr">name</span>: <span class="hljs-string">'Types'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'dimension'</span> },
@@ -367,52 +376,52 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">Data cube:</p>
-				<table>
-					<tbody>
-						<tr>
-							<th colspan="2" rowspan="2"></th>
-							<th colspan="4">Genres</th>
-						</tr>
-						<tr>
-							<td>Pop</td>
-							<td>Rock</td>
-							<td>Jazz</td>
-							<td>Metal</td>
-						</tr>
-						<tr>
-							<th rowspan="3">Types</th>
-							<td>Hard</td>
-							<td>114</td>
-							<td>96</td>
-							<td>78</td>
-							<td>52</td>
-						</tr>
-						<tr>
-							<td>Smooth</td>
-							<td>56</td>
-							<td>36</td>
-							<td>74</td>
-							<td>121</td>
-						</tr>
-						<tr>
-							<td>Experimental</td>
-							<td>127</td>
-							<td>83</td>
-							<td>94</td>
-							<td>58</td>
-						</tr>
-						<tr>
-							<td colspan="2"></td>
-							<th colspan="4">Popularity</th>
-						</tr>
-					</tbody>
-				</table>
+					</div>
+					<p class="paragraph">Data cube:</p>
+					<table>
+						<tbody>
+							<tr>
+								<th colspan="2" rowspan="2"></th>
+								<th colspan="4">Genres</th>
+							</tr>
+							<tr>
+								<td>Pop</td>
+								<td>Rock</td>
+								<td>Jazz</td>
+								<td>Metal</td>
+							</tr>
+							<tr>
+								<th rowspan="3">Types</th>
+								<td>Hard</td>
+								<td>114</td>
+								<td>96</td>
+								<td>78</td>
+								<td>52</td>
+							</tr>
+							<tr>
+								<td>Smooth</td>
+								<td>56</td>
+								<td>36</td>
+								<td>74</td>
+								<td>121</td>
+							</tr>
+							<tr>
+								<td>Experimental</td>
+								<td>127</td>
+								<td>83</td>
+								<td>94</td>
+								<td>58</td>
+							</tr>
+							<tr>
+								<td colspan="2"></td>
+								<th colspan="4">Popularity</th>
+							</tr>
+						</tbody>
+					</table>
 
 
-				<div class="snippet">
-					<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
+					<div class="snippet">
+						<pre><code class="language-javascript"><span class="hljs-keyword">let</span> data = {
     <span class="hljs-attr">dimensions</span>: [ 
         { <span class="hljs-attr">name</span>: <span class="hljs-string">'Genres'</span>, <span class="hljs-attr">values</span>: [ <span class="hljs-string">'Pop'</span>, <span class="hljs-string">'Rock'</span>, <span class="hljs-string">'Jazz'</span>, <span class="hljs-string">'Metal'</span> ] },
         { <span class="hljs-attr">name</span>: <span class="hljs-string">'Types'</span>, <span class="hljs-attr">values</span>: [ <span class="hljs-string">'Hard'</span>, <span class="hljs-string">'Smooth'</span>, <span class="hljs-string">'Experimental'</span> ] }
@@ -431,21 +440,24 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">You should set the data in the first animate call:</p>
-				<div class="snippet">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ data });
+					</div>
+					<p class="paragraph">You should set the data in the first animate call:</p>
+					<div class="snippet">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ data });
 </code></pre>
+					</div>
+
 				</div>
 
-				<a class="anchor" id="chapter-0.2"></a>
-				<h2 class="subtitle">Axes, title, tooltip</h2>
-				<p class="paragraph">To build a chart with Vizzu, you have to add data series to the channels.</p>
-				<p class="paragraph">The first step is to create a simple column chart, adding one of the dimensions
-					(Genre) to the x-axis and the measure (Popularity) to the y-axis using the set
-					property.</p>
-				<div id="snippet-0.2.1" class="snippet runable" tabindex="0">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+				<div data-title="Axes, title, tooltip">
+					<a class="anchor" id="chapter-0.2"></a>
+					<h2 class="subtitle">Axes, title, tooltip</h2>
+					<p class="paragraph">To build a chart with Vizzu, you have to add data series to the channels.</p>
+					<p class="paragraph">The first step is to create a simple column chart, adding one of the dimensions
+						(Genre) to the x-axis and the measure (Popularity) to the y-axis using the set
+						property.</p>
+					<div id="snippet-0.2.1" class="snippet runable" tabindex="0">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
             <span class="hljs-attr">y</span>: { <span class="hljs-attr">set</span>: [<span class="hljs-string">'Popularity'</span>] },
@@ -455,7 +467,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-					<!--script>
+						<!--script>
 						registry.addSnippet(
 							"0.2.1",
 							chart => {
@@ -470,12 +482,12 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 							},
 							{ "run": true, "pure": false });
 					</script-->
-				</div>
-				<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis
-					using once again the set property, resulting in a single column chart. Vizzu
-					automatically animates between the initial state and this one.</p>
-				<div id="snippet-0.2.2" class="snippet runable" tabindex="0">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+					</div>
+					<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis
+						using once again the set property, resulting in a single column chart. Vizzu
+						automatically animates between the initial state and this one.</p>
+					<div id="snippet-0.2.2" class="snippet runable" tabindex="0">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
                 <span class="hljs-attr">x</span>: { <span class="hljs-attr">set</span>: <span class="hljs-literal">null</span> },
@@ -485,7 +497,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-					<!--script>
+						<!--script>
 						registry.addSnippet(
 							"0.2.2",
 							chart => {
@@ -500,11 +512,12 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 							},
 							{ "run": true, "pure": false });
 					</script-->
-				</div>
-				<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from the
-					channels. </p>
-				<div id="snippet-0.2.3" class="snippet runable" tabindex="0">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+					</div>
+					<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from
+						the
+						channels. </p>
+					<div id="snippet-0.2.3" class="snippet runable" tabindex="0">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
             <span class="hljs-attr">y</span>: { <span class="hljs-attr">detach</span>: [<span class="hljs-string">'Popularity'</span>] },
@@ -514,7 +527,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-					<!--script>
+						<!--script>
 						registry.addSnippet(
 							"0.2.3",
 							chart => {
@@ -529,41 +542,43 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 							},
 							{ "run": true, "pure": false });
 					</script-->
-				</div>
-				<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts
-					step-by-step, however you either have to keep in mind what you had on which channel in
-					the previous step or add the following code to access the actual configuration of the chart.</p>
-				<div class="snippet">
-					<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(chart.<span class="hljs-property">config</span>); 
+					</div>
+					<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts
+						step-by-step, however you either have to keep in mind what you had on which channel in
+						the previous step or add the following code to access the actual configuration of the chart.</p>
+					<div class="snippet">
+						<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(chart.<span class="hljs-property">config</span>); 
 </code></pre>
 
 
-				</div>
-				<p class="paragraph">Setting the chart title with the title command.</p>
-				<div id="snippet-0.2.4" class="snippet runable" tabindex="0">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-attr">title</span>:<span class="hljs-string">'My first chart'</span> })
+					</div>
+					<p class="paragraph">Setting the chart title with the title command.</p>
+					<div id="snippet-0.2.4" class="snippet runable" tabindex="0">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-attr">title</span>:<span class="hljs-string">'My first chart'</span> })
 </code></pre>
 
-					<!--script>
+						<!--script>
 						registry.addSnippet(
 							"0.2.4",
 							chart => { chart.animate({ title: 'My first chart' }) },
 							{ "run": true, "pure": false });
 					</script-->
-				</div>
-				<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user hovers
-					over them with their mouse by adding the (tooltip, true) parameters to the
-					chart.feature method. </p>
-				<div id="snippet-0.2.5" class="snippet runable" tabindex="0">
-					<pre><code class="language-javascript">chart.<span class="hljs-title function_">feature</span>(<span class="hljs-string">'tooltip'</span>,<span class="hljs-literal">true</span>)
+					</div>
+					<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user
+						hovers
+						over them with their mouse by adding the (tooltip, true) parameters to the
+						chart.feature method. </p>
+					<div id="snippet-0.2.5" class="snippet runable" tabindex="0">
+						<pre><code class="language-javascript">chart.<span class="hljs-title function_">feature</span>(<span class="hljs-string">'tooltip'</span>,<span class="hljs-literal">true</span>)
 </code></pre>
 
-					<!--script>
+						<!--script>
 						registry.addSnippet(
 							"0.2.5",
 							chart => { chart.feature('tooltip', true) },
 							{ "title": "My first chart", "run": true, "pure": false });
 					</script-->
+					</div>
 				</div>
 
 
