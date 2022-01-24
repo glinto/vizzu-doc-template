@@ -113,7 +113,7 @@
 						<ul class="submenu">
 							<li><a href="#chapter-0.0">Intro</a></li>
 							<li><a href="#chapter-0.1">Data</a></li>
-							<li>Axes, title, tooltip</li>
+							<li><a href="#chapter-0.2">Axes, title, tooltip</a></li>
 							<li>Geometry</li>
 
 						</ul>
@@ -434,12 +434,139 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 				<div class="snippet">
 					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ data });
 </code></pre>
+				</div>
 
+				<a class="anchor" id="chapter-0.2"></a>
+				<h2 class="subtitle">Axes, title, tooltip</h2>
+				<p class="paragraph">To build a chart with Vizzu, you have to add data series to the channels.</p>
+				<p class="paragraph">The first step is to create a simple column chart, adding one of the dimensions
+					(Genre) to the x-axis and the measure (Popularity) to the y-axis using the set
+					property.</p>
+				<div id="snippet-0.2.1" class="snippet runable" tabindex="0">
+					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+    <span class="hljs-attr">config</span>: {
+        <span class="hljs-attr">channels</span>: {
+            <span class="hljs-attr">y</span>: { <span class="hljs-attr">set</span>: [<span class="hljs-string">'Popularity'</span>] },
+            <span class="hljs-attr">x</span>: { <span class="hljs-attr">set</span>: [<span class="hljs-string">'Genres'</span>] }
+        }
+    }
+})
+</code></pre>
+
+					<!--script>
+						registry.addSnippet(
+							"0.2.1",
+							chart => {
+								chart.animate({
+									config: {
+										channels: {
+											y: { set: ['Popularity'] },
+											x: { set: ['Genres'] }
+										}
+									}
+								})
+							},
+							{ "run": true, "pure": false });
+					</script-->
+				</div>
+				<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis
+					using once again the set property, resulting in a single column chart. Vizzu
+					automatically animates between the initial state and this one.</p>
+				<div id="snippet-0.2.2" class="snippet runable" tabindex="0">
+					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+    <span class="hljs-attr">config</span>: {
+        <span class="hljs-attr">channels</span>: {
+                <span class="hljs-attr">x</span>: { <span class="hljs-attr">set</span>: <span class="hljs-literal">null</span> },
+                <span class="hljs-attr">y</span>: { <span class="hljs-attr">set</span>: [<span class="hljs-string">'Genres'</span>,<span class="hljs-string">'Popularity'</span>] }
+        }
+    }
+})
+</code></pre>
+
+					<!--script>
+						registry.addSnippet(
+							"0.2.2",
+							chart => {
+								chart.animate({
+									config: {
+										channels: {
+											x: { set: null },
+											y: { set: ['Genres', 'Popularity'] }
+										}
+									}
+								})
+							},
+							{ "run": true, "pure": false });
+					</script-->
+				</div>
+				<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from the
+					channels. </p>
+				<div id="snippet-0.2.3" class="snippet runable" tabindex="0">
+					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
+    <span class="hljs-attr">config</span>: {
+        <span class="hljs-attr">channels</span>: {
+            <span class="hljs-attr">y</span>: { <span class="hljs-attr">detach</span>: [<span class="hljs-string">'Popularity'</span>] },
+            <span class="hljs-attr">x</span>: { <span class="hljs-attr">attach</span>: [<span class="hljs-string">'Popularity'</span>] }
+        }
+    }
+})
+</code></pre>
+
+					<!--script>
+						registry.addSnippet(
+							"0.2.3",
+							chart => {
+								chart.animate({
+									config: {
+										channels: {
+											y: { detach: ['Popularity'] },
+											x: { attach: ['Popularity'] }
+										}
+									}
+								})
+							},
+							{ "run": true, "pure": false });
+					</script-->
+				</div>
+				<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts
+					step-by-step, however you either have to keep in mind what you had on which channel in
+					the previous step or add the following code to access the actual configuration of the chart.</p>
+				<div class="snippet">
+					<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(chart.<span class="hljs-property">config</span>); 
+</code></pre>
 
 
 				</div>
+				<p class="paragraph">Setting the chart title with the title command.</p>
+				<div id="snippet-0.2.4" class="snippet runable" tabindex="0">
+					<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-attr">title</span>:<span class="hljs-string">'My first chart'</span> })
+</code></pre>
+
+					<!--script>
+						registry.addSnippet(
+							"0.2.4",
+							chart => { chart.animate({ title: 'My first chart' }) },
+							{ "run": true, "pure": false });
+					</script-->
+				</div>
+				<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user hovers
+					over them with their mouse by adding the (tooltip, true) parameters to the
+					chart.feature method. </p>
+				<div id="snippet-0.2.5" class="snippet runable" tabindex="0">
+					<pre><code class="language-javascript">chart.<span class="hljs-title function_">feature</span>(<span class="hljs-string">'tooltip'</span>,<span class="hljs-literal">true</span>)
+</code></pre>
+
+					<!--script>
+						registry.addSnippet(
+							"0.2.5",
+							chart => { chart.feature('tooltip', true) },
+							{ "title": "My first chart", "run": true, "pure": false });
+					</script-->
+				</div>
+
 
 			</div>
+
 
 		</div>
 		<div class="vizzu-sidebar-scrim"></div>
