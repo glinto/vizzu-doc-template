@@ -21,6 +21,7 @@
 
 			const SCROLLSPY_OFFSET = 100;
 
+			// Funcationality bound to scroll updates
 			function scrollSpyUpdate(position) {
 				let elems = document.querySelectorAll('.vizzu-sidebar li a[href]');
 				let bodyRect = document.body.getBoundingClientRect();
@@ -61,9 +62,14 @@
 				setScroll();
 			})();
 
+			function loadStaticExample(url) {
+				console.log(url);
+			}
+
 			return {
 				toggleSideBar: toggleSideBar,
-				closeSideBar: closeSideBar
+				closeSideBar: closeSideBar,
+				loadStaticExample: loadStaticExample
 			};
 		})();
 
@@ -80,6 +86,12 @@
 			document.querySelectorAll('.vizzu-sidebar a[href]').forEach((element) => {
 				element.addEventListener('click', (event) => {
 					$vizzuNS.closeSideBar();
+				});
+			});
+			/* Static thumbnails */
+			document.querySelectorAll('img.thumbnail-static').forEach((element) => {
+				element.addEventListener('click', (event) => {
+					$vizzuNS.loadStaticExample(event.target.dataset.target);
 				});
 			});
 		});
@@ -120,8 +132,8 @@
 					</li>
 					<li>Examples
 						<ul class="submenu">
-							<li>Static Charts</li>
-							<li>Animated Charts</li>
+							<li><a href="#static-charts">Static charts</a></li>
+							<li>Animated charts</li>
 						</ul>
 					</li>
 					<li>
@@ -583,6 +595,30 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 
 
 				<h1>Examples</h1>
+
+				<div data-title="Static charts">
+					<a class="anchor" id="static-charts"></a>
+					<h2 class="subtitle">Static charts</h2>
+					<div class="row mt-4">
+						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
+							<img src="content/example/static/static1.png" class="thumbnail-static"
+								data-target="content/example/static/static1">
+						</div>
+						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
+							<img src="content/example/static/static1.png" class="thumbnail-static"
+								data-target="content/example/static/static1">
+						</div>
+						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
+							<img src="content/example/static/static1.png" class="thumbnail-static"
+								data-target="content/example/static/static1">
+						</div>
+						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
+							<img src="content/example/static/static1.png" class="thumbnail-static"
+								data-target="content/example/static/static1">
+						</div>
+					</div>
+				</div>
+
 
 
 			</div>
