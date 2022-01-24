@@ -150,9 +150,15 @@ h2 {
 	margin-top: 2rem;
 }
 
-h2:first-of-type {
+h1 {
+	margin-top: 4rem;
+}
+
+
+h1:first-of-type {
 	margin-top: 0;
 }
+
 
 h3 {
 	margin-top: 2rem;
