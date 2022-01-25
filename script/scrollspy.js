@@ -1,7 +1,8 @@
-class ScrollSpy {
-	constructor() {
+export default class ScrollSpy {
+	constructor(targetElement) {
 		const debounceScroll = new CustomEvent('debounce-scroll');
 		this.ticking = false;
+		this.targetElement = targetElement;
 
 		document.addEventListener('scroll',
 			() => { this.frameScroll() },
@@ -10,9 +11,9 @@ class ScrollSpy {
 	}
 
 	updateScroll() {
-		document.documentElement.dataset.scroll = window.scrollY;
+		this.targetElement.dataset.scroll = window.scrollY;
 		let event = new CustomEvent('debounce-scroll', { detail: { scrollY: window.scrollY } });
-		document.documentElement.dispatchEvent(event);
+		this.targetElement.dispatchEvent(event);
 	}
 
 	frameScroll() {
@@ -25,8 +26,5 @@ class ScrollSpy {
 			this.ticking = false;
 		});
 	}
-
-
-
 
 }
