@@ -12,82 +12,9 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="style/style.css">
 
 	<script type="module">
+		import VizzuDocumentation from './script/index.js';
 
-		import ScrollSpy from "./script/scrollspy.js";
-
-		const $vizzuNS = (() => {
-			function toggleSideBar() {
-				document.querySelector('.vizzu-page').classList.toggle('vizzu-page-sidebar-toggled');
-			}
-			function closeSideBar() {
-				document.querySelector('.vizzu-page').classList.remove('vizzu-page-sidebar-toggled');
-			}
-
-			const scrollSpyTarget = document.documentElement;
-			const scrollSpy = new ScrollSpy(scrollSpyTarget);
-			const SCROLLSPY_OFFSET = 100;
-
-			scrollSpyTarget.addEventListener('debounce-scroll', (e) => {
-				let elems = document.querySelectorAll('.vizzu-sidebar li a[href]');
-				let bodyRect = document.body.getBoundingClientRect();
-				let lastElement = undefined;
-				elems.forEach((elem) => {
-					elem.classList.remove('active');
-					let targetElem = document.getElementById(elem.getAttribute('href').substr(1));
-					if (targetElem) {
-						let targetRect = targetElem.getBoundingClientRect();
-						if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < e.detail.scrollY)
-							lastElement = elem;
-					}
-				});
-				if (lastElement)
-					lastElement.classList.add('active');
-			});
-
-
-
-			// Funcationality bound to scroll updates
-			function scrollSpyUpdate(position) {
-
-			}
-
-
-			function loadStaticExample(url) {
-				console.log(url);
-			}
-
-			return {
-				toggleSideBar: toggleSideBar,
-				closeSideBar: closeSideBar,
-				loadStaticExample: loadStaticExample
-			};
-		})();
-
-		document.addEventListener("DOMContentLoaded", function (event) {
-			document.querySelector('.action-sidebar-toogle').addEventListener('click', (event) => {
-				$vizzuNS.toggleSideBar();
-				event.preventDefault();
-			});
-			document.querySelector('.vizzu-sidebar-scrim').addEventListener('click', (event) => {
-				$vizzuNS.closeSideBar();
-				event.preventDefault();
-			});
-			/* When we click a link on the sidebar, it will close the sidebar (on mobiles) */
-			document.querySelectorAll('.vizzu-sidebar a[href]').forEach((element) => {
-				element.addEventListener('click', (event) => {
-					$vizzuNS.closeSideBar();
-				});
-			});
-			/* Static thumbnails */
-			document.querySelectorAll('img.thumbnail-static').forEach((element) => {
-				element.addEventListener('click', (event) => {
-					$vizzuNS.loadStaticExample(event.target.dataset.target);
-				});
-			});
-
-		});
-
-
+		const vizzuDoc = new VizzuDocumentation(document.documentElement);
 	</script>
 </head>
 
@@ -135,7 +62,7 @@
 			</div>
 
 			<!-- Content -->
-			<div class="vizzu-content flex-grow-1">
+			<div class="vizzu-content flex-grow-1" data-spy="scroll" data-spy-target-selector=".vizzu-sidebar">
 				<h1>Tutorial</h1>
 
 				<div data-title="Intro">
@@ -616,6 +543,12 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 		</div>
 
 		<div class="vizzu-sidebar-scrim"></div>
+	</div>
+
+	<div class="vizzu-modal d-none">
+		<div class="container d-flex flex-column justify-content-center vizzu-modal-content p-4">
+			<div class="vizzu-modal-content-inner bg-white p-4 depth-shadow"></div>
+		</div>
 	</div>
 
 </body>
