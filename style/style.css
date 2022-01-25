@@ -179,7 +179,7 @@ td {
 }
 
 html:not([data-scroll='0']) .vizzu-header {
-	box-shadow: rgba(0, 0, 0, .5) 0 1px 10px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 img.thumbnail-static {
@@ -191,3 +191,24 @@ img.thumbnail-static:hover {
 	box-shadow: rgba(0, 0, 0, .1) 3px 3px 10px;
 }
 
+.vizzu-modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1040;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.vizzu-modal-content {
+	z-index: 1060;
+	height: 100vh;
+}
+
+.depth-shadow {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.c-pointer {
+	cursor: pointer;
+}
