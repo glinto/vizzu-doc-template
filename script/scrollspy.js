@@ -40,7 +40,7 @@ export default class ScrollSpy {
 						lastElement = elem;
 				}
 			});
-			// active the last element which is in or above the viewport
+			// active the last menu element whose content target is in or above the viewport
 			if (lastElement)
 				lastElement.classList.add('active');
 		}
