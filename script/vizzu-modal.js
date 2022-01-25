@@ -39,18 +39,14 @@ export default class VizzuModal extends HTMLElement {
 		let iframe = document.createElement('iframe');
 		iframe.src = url;
 		iframe.width = '100%';
-		iframe.height = '100%';
 		iframe.allowFullscreen = false;
 
 		placeholder.appendChild(iframe);
 		iframe.addEventListener("load", (event) => {
-			let height = Math.min(iframe.contentWindow.document.body.scrollHeight + 48, window.outerHeight - 48);
+			let height = Math.min(iframe.contentWindow.document.body.scrollHeight + 48, window.innerHeight - 128);
+			//console.log(iframe.contentWindow.document.body.scrollHeight, window.innerHeight, height)
 			iframe.style.height = height + "px";
 		});
-
-		//placeholder.innerHTML = `<iframe src="${url}" width="100%" height="100%" frameborder="0"
-		//onload="this.style.height = Math.min(this.contentWindow.document.body.scrollHeight, document.body.scrollHeight) + 'px'"
-		//></iframe>`;
 
 		this.querySelector('h2').innerText = title;
 	}
