@@ -1,8 +1,12 @@
+const SCROLLSPY_OFFSET = 300;
+
 export default class ScrollSpy {
-	constructor(targetElement) {
-		const debounceScroll = new CustomEvent('debounce-scroll');
+	constructor(contextElement) {
+
 		this.ticking = false;
-		this.targetElement = targetElement;
+		this.contextElement = contextElement;
+
+		this.watchElement = this.contextElement.querySelector('[data-spy="scroll"]');
 
 		document.addEventListener('scroll',
 			() => { this.frameScroll() },
@@ -11,9 +15,37 @@ export default class ScrollSpy {
 	}
 
 	updateScroll() {
-		this.targetElement.dataset.scroll = window.scrollY;
+		// update the target element's data-scroll property
+		this.contextElement.dataset.scroll = window.scrollY;
+		// fire debounced scroll event from the target element
 		let event = new CustomEvent('debounce-scroll', { detail: { scrollY: window.scrollY } });
-		this.targetElement.dispatchEvent(event);
+		this.contextElement.dispatchEvent(event);
+
+		// Update the target menu based on the current scroll position
+		if (this.watchElement) {
+			// get the menu elements bound to the scrolled content
+			let selector = this.watchElement.dataset.spyTargetSelector;
+			let elems = this.contextElement.querySelectorAll(`${selector} li a[href]`);
+			// get the current scroll position
+			let bodyRect = document.body.getBoundingClientRect();
+			let lastElement = undefined;
+			// iterate over the menu elements
+			elems.forEach((elem) => {
+				elem.classList.remove('active');
+				// check if the referenced anchor is in or above the viewport
+				let targetElem = document.getElementById(elem.getAttribute('href').substr(1));
+				if (targetElem) {
+					let targetRect = targetElem.getBoundingClientRect();
+					if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < window.scrollY)
+						lastElement = elem;
+				}
+			});
+			// active the last element which is in or above the viewport
+			if (lastElement)
+				lastElement.classList.add('active');
+		}
+
+
 	}
 
 	frameScroll() {
