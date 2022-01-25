@@ -14,6 +14,7 @@
 	<script type="module">
 		import VizzuDocumentation from './script/index.js';
 
+		// Apply the behaviors to the docuemnt
 		const vizzuDoc = new VizzuDocumentation(document.documentElement);
 	</script>
 </head>
@@ -62,6 +63,10 @@
 			</div>
 
 			<!-- Content -->
+			<!-- 
+				data-spy binds a scrollspy on the child content
+				data-spy-target-selector indicates where to look for the referencing <a> elements
+			-->
 			<div class="vizzu-content flex-grow-1" data-spy="scroll" data-spy-target-selector=".vizzu-sidebar">
 				<h1>Tutorial</h1>
 
