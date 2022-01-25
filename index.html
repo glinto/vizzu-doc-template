@@ -10,7 +10,9 @@
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" media="screen" href="style/highlight.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="style/style.css">
+	<script src="./script/scrollspy.js"></script>
 	<script>
+
 		const $vizzuNS = (() => {
 			function toggleSideBar() {
 				document.querySelector('.vizzu-page').classList.toggle('vizzu-page-sidebar-toggled');
@@ -19,10 +21,10 @@
 				document.querySelector('.vizzu-page').classList.remove('vizzu-page-sidebar-toggled');
 			}
 
+			const scrollSpy = new ScrollSpy();
 			const SCROLLSPY_OFFSET = 100;
 
-			// Funcationality bound to scroll updates
-			function scrollSpyUpdate(position) {
+			document.documentElement.addEventListener('debounce-scroll', (e) => {
 				let elems = document.querySelectorAll('.vizzu-sidebar li a[href]');
 				let bodyRect = document.body.getBoundingClientRect();
 				let lastElement = undefined;
@@ -31,36 +33,21 @@
 					let targetElem = document.getElementById(elem.getAttribute('href').substr(1));
 					if (targetElem) {
 						let targetRect = targetElem.getBoundingClientRect();
-						if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < position)
+						if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < e.detail.scrollY)
 							lastElement = elem;
 					}
 				});
 				if (lastElement)
 					lastElement.classList.add('active');
+			});
+
+
+
+			// Funcationality bound to scroll updates
+			function scrollSpyUpdate(position) {
+
 			}
 
-			// Animation frame based and debounced scroll updater
-			(function debouncedScrollUpdater() {
-				let ticking = false;
-				const frameScroll = () => {
-					if (ticking) {
-						return;
-					}
-					requestAnimationFrame(() => {
-						setScroll();
-						scrollSpyUpdate(window.scrollY);
-						ticking = false;
-					});
-				};
-				const setScroll = () => {
-					document.documentElement.dataset.scroll = window.scrollY;
-				}
-				document.addEventListener('scroll',
-					frameScroll,
-					{ passive: true });
-
-				setScroll();
-			})();
 
 			function loadStaticExample(url) {
 				console.log(url);
@@ -94,6 +81,7 @@
 					$vizzuNS.loadStaticExample(event.target.dataset.target);
 				});
 			});
+
 		});
 
 
