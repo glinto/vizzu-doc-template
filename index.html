@@ -13,9 +13,14 @@
 
 	<script type="module">
 		import VizzuDocumentation from './script/index.js';
+		import VizzuModal from './script/vizzu-modal.js';
 
 		// Apply the behaviors to the docuemnt
 		const vizzuDoc = new VizzuDocumentation(document.documentElement);
+
+		customElements.define('vizzu-modal', VizzuModal);
+		const modal = document.querySelector('vizzu-modal');
+
 	</script>
 </head>
 
@@ -525,19 +530,19 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 					<div class="row mt-4">
 						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
 							<img src="content/example/static/static1.png" class="thumbnail-static"
-								data-target="content/example/static/static1">
+								data-target="content/example/static/static1" alt="Histogram">
 						</div>
 						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
 							<img src="content/example/static/static1.png" class="thumbnail-static"
-								data-target="content/example/static/static1">
+								data-target="content/example/static/static1" alt="Histogram">
 						</div>
 						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
 							<img src="content/example/static/static1.png" class="thumbnail-static"
-								data-target="content/example/static/static1">
+								data-target="content/example/static/static1" alt="Histogram">
 						</div>
 						<div class="col-12 col-lg-6 mb-4 thumbnail-static-card">
 							<img src="content/example/static/static1.png" class="thumbnail-static"
-								data-target="content/example/static/static1">
+								data-target="content/example/static/static1" alt="Histogram">
 						</div>
 					</div>
 				</div>
@@ -550,11 +555,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 		<div class="vizzu-sidebar-scrim"></div>
 	</div>
 
-	<div class="vizzu-modal d-none">
-		<div class="container d-flex flex-column justify-content-center vizzu-modal-content p-4">
-			<div class="vizzu-modal-content-inner bg-white p-4 depth-shadow"></div>
-		</div>
-	</div>
+	<vizzu-modal class="vizzu-modal d-none"></vizzu-modal>
 
 </body>
 

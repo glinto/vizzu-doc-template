@@ -26,7 +26,7 @@ export default class VizzuDocumentation {
 			/* Static thumbnails */
 			document.querySelectorAll('img.thumbnail-static').forEach((element) => {
 				element.addEventListener('click', (event) => {
-					this.loadStaticExample(event.target.dataset.target);
+					document.querySelector('vizzu-modal').show(event.target.dataset.target, event.target.alt);
 				});
 			});
 		});
