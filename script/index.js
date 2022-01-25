@@ -29,6 +29,12 @@ export default class VizzuDocumentation {
 					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.alt);
 				});
 			});
+			/* Animated thumbnails */
+			document.querySelectorAll('video.thumbnail-animated').forEach((element) => {
+				element.addEventListener('click', (event) => {
+					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.title);
+				});
+			});
 		});
 	}
 
