@@ -203,7 +203,8 @@ img.thumbnail-static:hover {
 
 .vizzu-modal-content {
 	z-index: 1060;
-	height: 100vh;
+	box-sizing: border-box;
+    height: 100%;
 }
 
 .depth-shadow {
