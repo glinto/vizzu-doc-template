@@ -12,7 +12,9 @@ export default class VizzuModal extends HTMLElement {
 					<h2 class="mb-2 mt-0">Modal title</h2>
 					<span class="c-pointer"><img src="images/close_black_24dp.svg" alt="Close" height="24"></span>
 				</div>
-
+				<div class="vizzu-modal-spinner text-center d-none py-4">
+					<div class="spinner-grow" role="status"></div>
+				</div>
 				<div class="vizzu-modal-content-placeholder">placeholder</div>
 			</div>
 		</div>		
@@ -40,12 +42,19 @@ export default class VizzuModal extends HTMLElement {
 		iframe.src = url;
 		iframe.width = '100%';
 		iframe.allowFullscreen = false;
+		iframe.classList.add('d-none');
+
+		let spinner = this.querySelector('.vizzu-modal-spinner');
+		spinner.classList.remove('d-none');
 
 		placeholder.appendChild(iframe);
 		iframe.addEventListener("load", (event) => {
+			iframe.classList.remove('d-none');
+			spinner.classList.add('d-none');
 			let height = Math.min(iframe.contentWindow.document.body.scrollHeight + 48, window.innerHeight - 128);
 			//console.log(iframe.contentWindow.document.body.scrollHeight, window.innerHeight, height)
 			iframe.style.height = height + "px";
+
 		});
 
 		this.querySelector('h2').innerText = title;
