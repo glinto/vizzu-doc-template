@@ -45,6 +45,21 @@ export default class ScrollSpy {
 				lastElement.classList.add('active');
 		}
 
+		// Pause videos when not in viewport
+		let videos = this.contextElement.querySelectorAll('video[data-spy="scroll"]');
+		videos.forEach((video) => {
+			let rect = video.getBoundingClientRect();
+			let playable = rect.top > 0;
+			if (rect.top + rect.height > window.innerHeight) playable = false;
+
+			if (!playable && !video.paused) {
+				video.pause();
+			}
+			if (playable && video.paused) {
+				video.play();
+			}
+
+		});
 
 	}
 
