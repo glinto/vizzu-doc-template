@@ -1,7 +1,5 @@
 import ScrollSpy from "./scrollspy.js";
 
-
-
 export default class VizzuDocumentation {
 
 	constructor(context) {

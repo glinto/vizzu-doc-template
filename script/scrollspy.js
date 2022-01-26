@@ -26,9 +26,11 @@ export default class ScrollSpy {
 			// get the menu elements bound to the scrolled content
 			let selector = this.watchElement.dataset.spyTargetSelector;
 			let elems = this.contextElement.querySelectorAll(`${selector} li a[href]`);
-			// get the current scroll position
+			// get body bounding box
 			let bodyRect = document.body.getBoundingClientRect();
+
 			let lastElement = undefined;
+
 			// iterate over the menu elements
 			elems.forEach((elem) => {
 				elem.classList.remove('active');
