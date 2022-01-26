@@ -30,7 +30,7 @@ export default class VizzuDocumentation {
 			/* Animated thumbnails */
 			document.querySelectorAll('video.thumbnail-animated').forEach((element) => {
 				element.addEventListener('click', (event) => {
-					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.title);
+					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.dataset.title);
 				});
 			});
 		});
