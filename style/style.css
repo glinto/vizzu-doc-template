@@ -7,10 +7,29 @@
 	/* Override bootstrap colors with Vizzu dark and primary blue */
 	--bs-dark: #333;
 	--bs-dark-rgb: 48, 48, 48;
-	--bs-primary: #0085c5;
+	--bs-primary: #4171cd;
 	--bs-primary-rgb: 0, 133, 197;
 	/* Override bootstrap body font */
 	--bs-font-sans-serif: Roboto, "Helvetica Neue", Arial;
+	--bs-body-bg: #fff;
+	--bs-body-bg-alternate: #f8f9fa;
+	--bs-body-color: #212529;
+	--vizzu-border-color: #dee2e6;
+	--vizzu-sidebar-color: #333;
+	--vizzu-svg-fill-color: #000;
+}
+
+.theme-dark {
+	--bs-body-bg: #333;
+	--bs-body-bg-alternate: #444;
+	--vizzu-sidebar-color: #444;
+	--bs-body-color: #ccc;
+	--vizzu-border-color: #555;
+	--vizzu-svg-fill-color: #ccc;
+}
+
+body {
+	background-color: --bs-body-bg;
 }
 
 /* The header is fixed on top so you cannot scroll it out */
@@ -19,6 +38,15 @@
 	box-sizing: border-box;
 	width: 100%;
 	top: 0;
+	background-color: var(--bs-body-bg-alternate);
+}
+
+html:not([data-scroll='0']) .vizzu-header {
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+svg {
+	fill: var(--vizzu-svg-fill-color);
 }
 
 /* The rest of the page maintains a margin so it does not slip under the header */
@@ -31,14 +59,19 @@
 	max-width: var(--sidebar-width);
 	z-index: 1;
 	position: fixed;
-	top: 3rem;
+	top: 3.3rem;
 	bottom: 0;
 	overflow: hidden auto;
-	box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.4);
+	
 	/* Sidebar styled for default mobile view, its not visible and is slid out to the left by its entire width */
 	visibility: hidden;
 	margin-left: calc(var(--sidebar-width) * -1);
 	transition: all 0.3s;
+	background-color: var(--vizzu-sidebar-color);
+}
+
+html:not([data-scroll='0']) .vizzu-sidebar {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Style bar, mobiled view, toggled state. Gets visible and is slid in place (no margin) */
@@ -119,7 +152,7 @@ a.anchor {
 
 	/* The sidebar, by default, is visible, and does not have shadow (it does not overlap content) */
 	.vizzu-sidebar {
-		box-shadow: none;
+		/* box-shadow: none; */
 		margin-left: 0;
 		visibility: visible;
 	}
@@ -139,8 +172,8 @@ a.anchor {
 
 /* Basic element styles */
 .snippet pre {
-	background-color: var(--bs-light);
-	border: 1px solid var(--bs-gray-300);
+	background-color: var(--bs-body-bg-alternate);
+	border: 1px solid var(--vizzu-border-color);
 	padding: 1em;
 	white-space: pre-wrap;
 	word-wrap: break-word;
@@ -164,10 +197,14 @@ h3 {
 	margin-top: 2rem;
 }
 
+a {
+	color: var(--bs-primary);
+}
+
 .vizzu-content th,
 td {
 	text-align: center;
-	border: 1px solid #e0e0e0;
+	border: 1px solid var(--vizzu-border-color);
 	padding: 0.1em 1em 0.1em;
 }
 
@@ -178,14 +215,12 @@ td {
 	font-family: 'Roboto';
 }
 
-html:not([data-scroll='0']) .vizzu-header {
-	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-}
+
 
 img.thumbnail-static {
 	width: 100%;
 	cursor: pointer;
-	border: 1px solid #e0e0e0;	
+	border: 1px solid var(--vizzu-border-color);	
 }
 img.thumbnail-static:hover {
 	box-shadow: rgba(0, 0, 0, .1) 3px 3px 10px;
@@ -194,7 +229,7 @@ img.thumbnail-static:hover {
 video.thumbnail-animated {
 	width: 100%;
 	cursor: pointer;
-	border: 1px solid #e0e0e0;	
+	border: 1px solid var(--vizzu-border-color);
 }
 video.thumbnail-animated:hover {
 	box-shadow: rgba(0, 0, 0, .1) 3px 3px 10px;
