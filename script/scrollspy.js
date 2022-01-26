@@ -26,8 +26,6 @@ export default class ScrollSpy {
 			// get the menu elements bound to the scrolled content
 			let selector = this.watchElement.dataset.spyTargetSelector;
 			let elems = this.contextElement.querySelectorAll(`${selector} li a[href]`);
-			// get body bounding box
-			let bodyRect = document.body.getBoundingClientRect();
 
 			let lastElement = undefined;
 
@@ -38,7 +36,7 @@ export default class ScrollSpy {
 				let targetElem = document.getElementById(elem.getAttribute('href').substr(1));
 				if (targetElem) {
 					let targetRect = targetElem.getBoundingClientRect();
-					if (targetRect.top - bodyRect.top - SCROLLSPY_OFFSET < window.scrollY)
+					if (targetRect.top - SCROLLSPY_OFFSET < 0)
 						lastElement = elem;
 				}
 			});
