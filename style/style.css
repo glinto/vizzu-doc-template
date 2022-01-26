@@ -233,3 +233,8 @@ video.thumbnail-animated:hover {
 .c-pointer {
 	cursor: pointer;
 }
+.ellipses {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
