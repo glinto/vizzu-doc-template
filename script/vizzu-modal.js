@@ -9,7 +9,7 @@ export default class VizzuModal extends HTMLElement {
 		<div class="container d-flex flex-column justify-content-center vizzu-modal-content p-4">
 			<div class="vizzu-modal-content-inner bg-white p-4 depth-shadow">
 				<div class="d-flex align-items-center justify-content-between">
-					<h2 class="my-2">Modal title</h2>
+					<h2 class="mb-2 mt-0">Modal title</h2>
 					<span class="c-pointer"><img src="images/close_black_24dp.svg" alt="Close" height="24"></span>
 				</div>
 
