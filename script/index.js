@@ -6,9 +6,17 @@ export default class VizzuDocumentation {
 		this.context = context;
 		this.scrollSpy = new ScrollSpy(this.context);
 
+		if (localStorage.getItem('theme-dark') === 'true') {
+			document.documentElement.classList.add('theme-dark');
+		}
+
 		document.addEventListener("DOMContentLoaded", (event) => {
 			document.querySelector('.action-sidebar-toogle').addEventListener('click', (event) => {
 				this.toggleSideBar();
+				event.preventDefault();
+			});
+			document.querySelector('.action-dark-mode-toogle').addEventListener('click', (event) => {
+				this.toggleDarkMode();
 				event.preventDefault();
 			});
 			document.querySelector('.vizzu-sidebar-scrim').addEventListener('click', (event) => {
@@ -49,8 +57,19 @@ export default class VizzuDocumentation {
 		console.log(url);
 	}
 
+	toggleDarkMode() {
+		let cl = document.documentElement.classList;
+		if (cl.contains('theme-dark')) {
+			cl.remove('theme-dark');
+			localStorage.removeItem('theme-dark');
+		}
+		else {
+			cl.add('theme-dark');
+			localStorage.setItem('theme-dark', 'true');
+		}
+
+	}
+
 }
-
-
 
 
