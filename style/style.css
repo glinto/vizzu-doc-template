@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
 
-:root {
+html {
 	/* Set a variable for the sidebar width */
 	--sidebar-width: 250px;
 	/* Override bootstrap colors with Vizzu dark and primary blue */
@@ -19,7 +19,7 @@
 	--vizzu-svg-fill-color: #000;
 }
 
-.theme-dark {
+html.theme-dark {
 	--bs-body-bg: #333;
 	--bs-body-bg-alternate: #444;
 	--vizzu-sidebar-color: #444;
