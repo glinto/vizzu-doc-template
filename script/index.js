@@ -30,13 +30,13 @@ export default class VizzuDocumentation {
 				});
 			});
 			/* Static thumbnails */
-			document.querySelectorAll('img.thumbnail-static').forEach((element) => {
+			document.querySelectorAll('.action-static-example').forEach((element) => {
 				element.addEventListener('click', (event) => {
 					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.alt);
 				});
 			});
 			/* Animated thumbnails */
-			document.querySelectorAll('video.thumbnail-animated').forEach((element) => {
+			document.querySelectorAll('.action-animated-example').forEach((element) => {
 				element.addEventListener('click', (event) => {
 					document.querySelector('vizzu-modal').showUrl(event.target.dataset.target, event.target.dataset.title);
 				});
