@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed&display=swap');
 
+
+/**
+  * Variables and overrides
+  * =======================
+  */
+
 html {
 	/* Set a variable for the sidebar width */
 	--sidebar-width: 250px;
@@ -28,9 +34,64 @@ html.theme-dark {
 	--vizzu-svg-fill-color: #ccc;
 }
 
+/**
+ * Basic element appearance
+ * ========================
+ */
+ 
+body {
+	background-color: --bs-body-bg;
+}
+
+h2 {
+	margin-top: 2rem;
+}
+
+h1 {
+	margin-top: 4rem;
+}
+
+
+h1:first-of-type {
+	margin-top: 0;
+}
+
+
+h3 {
+	margin-top: 2rem;
+}
+
+a {
+	color: var(--bs-primary);
+}
+
+svg {
+	fill: var(--vizzu-svg-fill-color);
+}
+
+
+/**
+ * Generic appearance classes
+ */
+
+ .depth-shadow {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.c-pointer {
+	cursor: pointer;
+}
+
+.ellipses {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 
 /**
  * Header
+ * ======
  */
 
 /* The header is fixed on top so you cannot scroll it out */
@@ -47,7 +108,8 @@ html:not([data-scroll='0']) .vizzu-header {
 }
 
 /**
- * Sidebar
+ * Sidebar appereance and behavior
+ * ===============================
  */
 
 /* The rest of the page maintains a margin so it does not slip under the header */
@@ -131,9 +193,15 @@ a.anchor {
 }
 
 
-/* This is the 'md' breakpoint in Bootstrap
-	We will style non-mobile view with the media query below
-	*/
+/* 
+ * Responsive behavior of the sidebar
+ * ==================================
+ */
+
+/* 
+ * This is the 'md' breakpoint in Bootstrap
+ * We will style non-mobile view with the media query below
+ */
 @media (min-width: 768px) {
 
 	/* Content default view. Note, that in desktop mode, the sidebar is shown by default, 
@@ -171,42 +239,10 @@ a.anchor {
 
 }
 
-/**
- * Basic element appearance 
- */
- 
-body {
-	background-color: --bs-body-bg;
-}
-
-h2 {
-	margin-top: 2rem;
-}
-
-h1 {
-	margin-top: 4rem;
-}
-
-
-h1:first-of-type {
-	margin-top: 0;
-}
-
-
-h3 {
-	margin-top: 2rem;
-}
-
-a {
-	color: var(--bs-primary);
-}
-
-svg {
-	fill: var(--vizzu-svg-fill-color);
-}
 
 /**
  * Content appearance
+ * ==================
  */
 
 .vizzu-content th,
@@ -231,8 +267,10 @@ td {
 	word-wrap: break-word;
 }
 
+
 /**
  * Thumbnails
+ * ==========
  */
 
 img.thumbnail-static {
@@ -253,8 +291,10 @@ video.thumbnail-animated:hover {
 	box-shadow: rgba(0, 0, 0, .1) 3px 3px 10px;
 }
 
+
 /**
  * Modal windows
+ * =============
  */
 
 .vizzu-modal {
@@ -284,20 +324,3 @@ video.thumbnail-animated:hover {
 	height: 6em;
 }
 
-/**
- * Generic appearance classes
- */
-
-.depth-shadow {
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-}
-
-.c-pointer {
-	cursor: pointer;
-}
-
-.ellipses {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
