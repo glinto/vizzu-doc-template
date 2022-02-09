@@ -122,7 +122,7 @@ html:not([data-scroll='0']) .vizzu-header {
 	max-width: var(--sidebar-width);
 	z-index: 1;
 	position: fixed;
-	top: 3.3rem;
+	top: 4rem;
 	bottom: 0;
 	overflow: hidden auto;
 	
