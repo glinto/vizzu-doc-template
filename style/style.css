@@ -194,6 +194,19 @@ a.anchor {
 
 
 /* 
+ * Responsive behavior of containers
+ * ==================================
+ */
+
+/* Eliminate max width under the 'md' breakpoint (looks bad on landscape mobile)  */ 
+@media (min-width: 576px) and (max-width: 767.99px) {
+	.container, .container-sm {
+		max-width: inherit;
+	}
+}
+
+
+/* 
  * Responsive behavior of the sidebar
  * ==================================
  */
