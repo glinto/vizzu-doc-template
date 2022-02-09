@@ -198,8 +198,8 @@ a.anchor {
  * ==================================
  */
 
-/* Eliminate max width under the 'md' breakpoint (looks bad on landscape mobile)  */ 
-@media (min-width: 576px) and (max-width: 767.99px) {
+/* Eliminate max width under the 'md' and 'lg'  breakpoint (looks bad on landscape mobile)  */ 
+@media (min-width: 576px) and (max-width: 991.99px) {
 	.container, .container-sm {
 		max-width: inherit;
 	}
