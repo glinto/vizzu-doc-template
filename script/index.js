@@ -53,10 +53,6 @@ export default class VizzuDocumentation {
 		document.querySelector('.vizzu-page').classList.remove('vizzu-page-sidebar-toggled');
 	}
 
-	loadStaticExample(url) {
-		console.log(url);
-	}
-
 	toggleDarkMode() {
 		let cl = document.documentElement.classList;
 		if (cl.contains('theme-dark')) {
