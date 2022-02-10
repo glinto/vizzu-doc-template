@@ -57,7 +57,6 @@ export default class VizzuDocumentation {
 
 	updateActiveSnippet(scrollY) {
 		let players = document.querySelectorAll('.snippet-player');
-		console.log('doubounce-scroll', scrollY);
 
 		let selectedSnippet = undefined;
 
@@ -71,7 +70,7 @@ export default class VizzuDocumentation {
 		});
 
 		if (selectedSnippet && (selectedSnippet !== this.activeSnippet)) {
-			console.log('changing active snippet')
+
 			// show the image in the former active player
 			if (this.activeSnippet) {
 				this.activeSnippet.querySelector('img').classList.remove('invisible');
