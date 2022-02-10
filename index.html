@@ -14,13 +14,17 @@
 	<script type="module">
 		import VizzuDocumentation from './script/index.js';
 		import VizzuModal from './script/vizzu-modal.js';
-
-		// Apply the behaviors to the docuemnt
-		const vizzuDoc = new VizzuDocumentation(document.documentElement);
+		import SnippetPlayerChart from './script/snippet-player-chart.js';
 
 		// Register and obtain VizzuModal component
 		customElements.define('vizzu-modal', VizzuModal);
 		const modal = document.querySelector('vizzu-modal');
+
+		// Register the snippet player
+		customElements.define('snippet-player-chart', SnippetPlayerChart);
+
+		// Apply the behaviors to the docuemnt
+		const vizzuDoc = new VizzuDocumentation(document.documentElement);
 
 	</script>
 </head>
@@ -126,8 +130,7 @@
 					<div class="snippet">
 						<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="language-javascript">
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">Vizzu</span> <span class="hljs-keyword">from</span> 
-  <span class="hljs-string">'https://cdn.jsdelivr.net/'+
-  'npm/vizzu@0.3.1/dist/vizzu.min.js'</span>;
+  <span class="hljs-string">'https://cdn.jsdelivr.net/npm/vizzu@0.3.1/dist/vizzu.min.js'</span>;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 
@@ -429,7 +432,11 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 					<p class="paragraph">The first step is to create a simple column chart, adding one of the dimensions
 						(Genre) to the x-axis and the measure (Popularity) to the y-axis using the set
 						property.</p>
+
 					<div id="snippet-0.2.1" class="snippet runable" tabindex="0">
+						<div class="snippet-player">
+							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
@@ -454,12 +461,16 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 								})
 							},
 							{ "run": true, "pure": false });
-					</script-->
+						</script-->
 					</div>
 					<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis
 						using once again the set property, resulting in a single column chart. Vizzu
 						automatically animates between the initial state and this one.</p>
+
 					<div id="snippet-0.2.2" class="snippet runable" tabindex="0">
+						<div class="snippet-player">
+							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
@@ -484,12 +495,15 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 								})
 							},
 							{ "run": true, "pure": false });
-					</script-->
+						</script-->
 					</div>
 					<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from
 						the
 						channels. </p>
 					<div id="snippet-0.2.3" class="snippet runable" tabindex="0">
+						<div class="snippet-player">
+							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
         <span class="hljs-attr">channels</span>: {
@@ -514,7 +528,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 								})
 							},
 							{ "run": true, "pure": false });
-					</script-->
+						</script-->
 					</div>
 					<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts
 						step-by-step, however you either have to keep in mind what you had on which channel in
@@ -527,6 +541,9 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 					</div>
 					<p class="paragraph">Setting the chart title with the title command.</p>
 					<div id="snippet-0.2.4" class="snippet runable" tabindex="0">
+						<div class="snippet-player">
+							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-attr">title</span>:<span class="hljs-string">'My first chart'</span> })
 </code></pre>
 
@@ -535,13 +552,16 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 							"0.2.4",
 							chart => { chart.animate({ title: 'My first chart' }) },
 							{ "run": true, "pure": false });
-					</script-->
+						</script-->
 					</div>
 					<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user
 						hovers
 						over them with their mouse by adding the (tooltip, true) parameters to the
 						chart.feature method. </p>
 					<div id="snippet-0.2.5" class="snippet runable" tabindex="0">
+						<div class="snippet-player">
+							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">feature</span>(<span class="hljs-string">'tooltip'</span>,<span class="hljs-literal">true</span>)
 </code></pre>
 
@@ -550,7 +570,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 							"0.2.5",
 							chart => { chart.feature('tooltip', true) },
 							{ "title": "My first chart", "run": true, "pure": false });
-					</script-->
+						</script-->
 					</div>
 				</div>
 

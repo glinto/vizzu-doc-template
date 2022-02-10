@@ -4,11 +4,22 @@ export default class VizzuDocumentation {
 
 	constructor(context) {
 		this.context = context;
-		this.scrollSpy = new ScrollSpy(this.context);
-
 		if (localStorage.getItem('theme-dark') === 'true') {
 			document.documentElement.classList.add('theme-dark');
 		}
+
+		this.scrollSpy = new ScrollSpy(this.context);
+
+		// which snippet holds the active chart
+		this.activeSnippet = undefined;
+
+		this.snippetPlayerChart = document.createElement('snippet-player-chart');
+		this.snippetPlayerChart.classList.add('snippet-player-chart');
+
+		// Update snippet players on scroll
+		this.context.addEventListener('debounce-scroll', (event) => {
+			this.updateActiveSnippet(event.detail.scrollY);
+		});
 
 		document.addEventListener("DOMContentLoaded", (event) => {
 			document.querySelector('.action-sidebar-toogle').addEventListener('click', (event) => {
@@ -44,6 +55,39 @@ export default class VizzuDocumentation {
 		});
 	}
 
+	updateActiveSnippet(scrollY) {
+		let players = document.querySelectorAll('.snippet-player');
+		console.log('doubounce-scroll', scrollY);
+
+		let selectedSnippet = undefined;
+
+		// determine which is the last snippet above the fold
+		players.forEach((player) => {
+
+			let rect = player.getBoundingClientRect();
+			if (rect.bottom < window.innerHeight && rect.bottom > 0) {
+				selectedSnippet = player;
+			}
+		});
+
+		if (selectedSnippet && (selectedSnippet !== this.activeSnippet)) {
+			console.log('changing active snippet')
+			// show the image in the former active player
+			if (this.activeSnippet) {
+				this.activeSnippet.querySelector('img').classList.remove('d-none');
+			}
+
+			let img = selectedSnippet.querySelector('img');
+			let height = img.getBoundingClientRect().height;
+			this.snippetPlayerChart.style.height = height + 'px';
+			selectedSnippet.appendChild(this.snippetPlayerChart);
+			img.classList.add('d-none');
+
+			this.activeSnippet = selectedSnippet;
+
+			window.scrollTo(window.scrollX, scrollY);
+		}
+	}
 
 	toggleSideBar() {
 		document.querySelector('.vizzu-page').classList.toggle('vizzu-page-sidebar-toggled');
