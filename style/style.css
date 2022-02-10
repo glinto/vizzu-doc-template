@@ -293,7 +293,7 @@ td {
 
 .snippet-player-chart {
 	box-sizing: border-box;
-	width: 100%;
+	position: absolute;
 }
 
 .snippet-player-snapshot {

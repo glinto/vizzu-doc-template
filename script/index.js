@@ -74,18 +74,20 @@ export default class VizzuDocumentation {
 			console.log('changing active snippet')
 			// show the image in the former active player
 			if (this.activeSnippet) {
-				this.activeSnippet.querySelector('img').classList.remove('d-none');
+				this.activeSnippet.querySelector('img').classList.remove('invisible');
 			}
 
 			let img = selectedSnippet.querySelector('img');
-			let height = img.getBoundingClientRect().height;
-			this.snippetPlayerChart.style.height = height + 'px';
+			let rect = img.getBoundingClientRect();
+			this.snippetPlayerChart.style.height = rect.height + 'px';
+			this.snippetPlayerChart.style.width = rect.width + 'px';
+			this.snippetPlayerChart.style.top = (rect.top + scrollY) + 'px';
+			this.snippetPlayerChart.style.left = rect.left + 'px';
 			selectedSnippet.appendChild(this.snippetPlayerChart);
-			img.classList.add('d-none');
+			img.classList.add('invisible');
 
 			this.activeSnippet = selectedSnippet;
 
-			window.scrollTo(window.scrollX, scrollY);
 		}
 	}
 
