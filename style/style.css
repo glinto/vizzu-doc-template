@@ -272,6 +272,12 @@ td {
 	font-family: 'Roboto';
 }
 
+.snippet {
+	width: 100%;
+	display: grid;
+	overflow-x: auto;
+}
+
 .snippet pre {
 	background-color: var(--bs-body-bg-alternate);
 	border: 1px solid var(--vizzu-border-color);
@@ -280,6 +286,21 @@ td {
 	word-wrap: break-word;
 }
 
+.snippet-player {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.snippet-player-chart {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.snippet-player-snapshot {
+	box-sizing: border-box;
+	width: 100%;
+
+}
 
 /**
  * Thumbnails
