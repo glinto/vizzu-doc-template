@@ -58,7 +58,6 @@ export default class ScrollSpy {
 			if (playable && video.paused) {
 				video.play();
 			}
-
 		});
 
 	}
@@ -67,11 +66,13 @@ export default class ScrollSpy {
 		if (this.ticking) {
 			return;
 		}
-		this.ticking = true;
-		requestAnimationFrame(() => {
-			this.updateScroll();
-			this.ticking = false;
-		});
+		this.ticking = setTimeout(() => {
+			requestAnimationFrame(() => {
+				this.updateScroll();
+				this.ticking = false;
+			});
+		}, 200);
+
 	}
 
 }
