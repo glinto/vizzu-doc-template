@@ -10,6 +10,7 @@
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" media="screen" href="style/highlight.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="style/style.css">
+	<script src="script/snippet-registry.js"></script>
 
 	<script type="module">
 		import VizzuDocumentation from './script/index.js';
@@ -434,7 +435,7 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 						property.</p>
 
 					<div id="snippet-0.2.1" class="snippet runable" tabindex="0">
-						<div class="snippet-player">
+						<div class="snippet-player" data-snippet-id="0.2.1">
 							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
 						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
@@ -447,28 +448,26 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-						<!--script>
-						registry.addSnippet(
-							"0.2.1",
-							chart => {
-								chart.animate({
+						<script>
+							registry.addSnippet(
+								"0.2.1",
+								{
 									config: {
 										channels: {
 											y: { set: ['Popularity'] },
 											x: { set: ['Genres'] }
 										}
 									}
-								})
-							},
-							{ "run": true, "pure": false });
-						</script-->
+								}
+							);
+						</script>
 					</div>
 					<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis
 						using once again the set property, resulting in a single column chart. Vizzu
 						automatically animates between the initial state and this one.</p>
 
 					<div id="snippet-0.2.2" class="snippet runable" tabindex="0">
-						<div class="snippet-player">
+						<div class="snippet-player" data-snippet-id="0.2.2">
 							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
 						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
@@ -481,28 +480,27 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-						<!--script>
-						registry.addSnippet(
-							"0.2.2",
-							chart => {
-								chart.animate({
+						<script>
+							registry.addSnippet(
+								"0.2.2",
+								{
 									config: {
 										channels: {
 											x: { set: null },
 											y: { set: ['Genres', 'Popularity'] }
 										}
 									}
-								})
-							},
-							{ "run": true, "pure": false });
-						</script-->
+								}
+							);
+						</script>
 					</div>
 					<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from
 						the
 						channels. </p>
 					<div id="snippet-0.2.3" class="snippet runable" tabindex="0">
-						<div class="snippet-player">
-							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
+						<div class="snippet-player" data-snippet-id="0.2.3">
+							<img class="snippet-player-snapshot" alt="snapshot"
+								src="content/snapshot/snippet.2.3.png" />
 						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({
     <span class="hljs-attr">config</span>: {
@@ -514,21 +512,19 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 })
 </code></pre>
 
-						<!--script>
-						registry.addSnippet(
-							"0.2.3",
-							chart => {
-								chart.animate({
+						<script>
+							registry.addSnippet(
+								"0.2.3",
+								{
 									config: {
 										channels: {
 											y: { detach: ['Popularity'] },
 											x: { attach: ['Popularity'] }
 										}
 									}
-								})
-							},
-							{ "run": true, "pure": false });
-						</script-->
+
+								});
+						</script>
 					</div>
 					<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts
 						step-by-step, however you either have to keep in mind what you had on which channel in
@@ -541,36 +537,36 @@ chart.<span class="hljs-property">initializing</span>.<span class="hljs-title fu
 					</div>
 					<p class="paragraph">Setting the chart title with the title command.</p>
 					<div id="snippet-0.2.4" class="snippet runable" tabindex="0">
-						<div class="snippet-player">
+						<div class="snippet-player" data-snippet-id="0.2.4">
 							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
 						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">animate</span>({ <span class="hljs-attr">title</span>:<span class="hljs-string">'My first chart'</span> })
 </code></pre>
 
-						<!--script>
-						registry.addSnippet(
-							"0.2.4",
-							chart => { chart.animate({ title: 'My first chart' }) },
-							{ "run": true, "pure": false });
-						</script-->
+						<script>
+							registry.addSnippet(
+								"0.2.4",
+								{ title: 'My first chart' }
+							);
+						</script>
 					</div>
 					<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user
 						hovers
 						over them with their mouse by adding the (tooltip, true) parameters to the
 						chart.feature method. </p>
 					<div id="snippet-0.2.5" class="snippet runable" tabindex="0">
-						<div class="snippet-player">
+						<div class="snippet-player" data-snippet-id="0.2.5">
 							<img class="snippet-player-snapshot" alt="snapshot" src="content/snapshot/snippet.png" />
 						</div>
 						<pre><code class="language-javascript">chart.<span class="hljs-title function_">feature</span>(<span class="hljs-string">'tooltip'</span>,<span class="hljs-literal">true</span>)
 </code></pre>
 
-						<!--script>
-						registry.addSnippet(
-							"0.2.5",
-							chart => { chart.feature('tooltip', true) },
-							{ "title": "My first chart", "run": true, "pure": false });
-						</script-->
+						<script>
+							registry.addSnippet(
+								"0.2.5",
+								chart => { chart.feature('tooltip', true) },
+								{ "title": "My first chart", "run": true, "pure": false });
+						</script>
 					</div>
 				</div>
 

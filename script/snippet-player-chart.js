@@ -21,22 +21,6 @@ export default class SnippetPlayerChart extends HTMLElement {
 				chart.animate({
 					data: data
 				});
-				chart.animate({
-					config: {
-						channels: {
-							y: { set: ['Popularity'] },
-							x: { set: ['Genres'] }
-						}
-					}
-				});
-				chart.animate({
-					config: {
-						channels: {
-							x: { set: null },
-							y: { set: ['Genres', 'Popularity'] }
-						}
-					}
-				})
 			});
 		}
 

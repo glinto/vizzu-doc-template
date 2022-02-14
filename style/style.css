@@ -295,6 +295,7 @@ td {
 .snippet-player-chart {
 	box-sizing: border-box;
 	position: absolute;
+	animation: opacity 0.5s;
 }
 
 .snippet-player-snapshot {

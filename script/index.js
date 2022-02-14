@@ -89,6 +89,15 @@ export default class VizzuDocumentation {
 
 			this.activeSnippet = selectedSnippet;
 
+			registry.snippetPlayerChart = this.snippetPlayerChart;
+			registry.playSnippet(selectedSnippet.dataset.snippetId).then(() => {
+				// copy the canvas content to the snippet player img
+				let canvas = this.snippetPlayerChart.querySelector('canvas');
+				img.src = canvas.toDataURL("image/png");
+
+			});
+
+
 		}
 	}
 
