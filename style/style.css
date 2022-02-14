@@ -205,7 +205,12 @@ a.anchor {
 		max-width: inherit;
 	}
 }
-
+/* Keep max-width for xxl breakpoints */
+@media (min-width: 1400px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+		max-width: 1140px;
+	}
+}
 
 /* 
  * Responsive behavior of the sidebar
