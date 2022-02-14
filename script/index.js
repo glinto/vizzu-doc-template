@@ -26,10 +26,12 @@ export default class VizzuDocumentation {
 				this.toggleSideBar();
 				event.preventDefault();
 			});
+			/*
 			document.querySelector('.action-dark-mode-toogle').addEventListener('click', (event) => {
 				this.toggleDarkMode();
 				event.preventDefault();
 			});
+			*/
 			document.querySelector('.vizzu-sidebar-scrim').addEventListener('click', (event) => {
 				this.closeSideBar();
 				event.preventDefault();
