@@ -101,6 +101,7 @@ svg {
 	width: 100%;
 	top: 0;
 	background-color: var(--bs-body-bg-alternate);
+	z-index: 1020; /* Bootstrap z-indexes */
 }
 
 html:not([data-scroll='0']) .vizzu-header {
