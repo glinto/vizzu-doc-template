@@ -3,9 +3,6 @@ class SnippetRegistry {
 	constructor() {
 		this.snippets = {};
 		this.snippetPlayerChart = undefined;
-		// Currently active snippet version
-		this.major = 0;
-		this.minor = 0;
 	}
 
 	addSnippet(semver, animFn, options) {
@@ -45,10 +42,6 @@ class SnippetRegistry {
 			return this.buildState(major, 1, minor);
 		}
 
-
-		// finally we update the active versions
-		this.major = major;
-		this.minor = minor;
 	}
 
 	playState(state, speed) {
