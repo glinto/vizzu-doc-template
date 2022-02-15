@@ -4,6 +4,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta property="og:site_name" content="Vizzu - Dialogue with Data">
+	<meta property="og:title" content="Vizzu">
+	<meta property="og:description" content="Open-source JavaScript library designed to easily create animated data visualizations and data stories.">
+	<meta property="og:image" content="https://vizzuhq.com/images/logo/vizzu-twitter.png">
+	<meta property="og:video" content="https://vizzuhq.com/images/logo/social-image-big.mp4">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://vizzuhq.com/index.html">
+
+	<meta name="twitter:title" content="Vizzu - Dialogue with Data">
+	<meta name="twitter:site" content="@VizzuHQ">
+	<meta name="twitter:creator" content="@VizzuHQ">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:description" content="Open-source JavaScript library designed to easily create animated data visualizations and data stories.">
+	<meta name="twitter:image" content="https://vizzuhq.com/images/logo/vizzu-twitter.png">
+
 	<title>Vizzu Documentation</title>
 	<link rel="icon" href="images/favicon.svg">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,7 +27,6 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="style/highlight.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="style/style.css">
 	<script src="script/snippet-registry.js"></script>
-
 	<script type="module">
 		import VizzuDocumentation from './script/index.js';
 		import VizzuModal from './script/vizzu-modal.js';
@@ -28,6 +43,21 @@
 		const vizzuDoc = new VizzuDocumentation(document.documentElement);
 
 	</script>
+<!--
+	<script>
+		var _paq = window._paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+		var u="https://vizzu.matomo.cloud/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src='//cdn.matomo.cloud/vizzu.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+		})();
+	</script>
+-->
 </head>
 
 <body>
@@ -126,6 +156,7 @@
 			-->
 			<div class="vizzu-content flex-grow-1" data-spy="scroll" data-spy-target-selector=".vizzu-sidebar">
 				<h1>Tutorial</h1>
+
 
 
 
@@ -422,7 +453,8 @@
 				x: { set: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">In the next step, the chart is rearranged by putting both series on the y-axis 
@@ -454,7 +486,8 @@
 					y: { set: ['Genres','Popularity'] }
 			}
 		}
-	});
+	},
+							{"run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Instead of set, you can use attach and detach to add or remove series to/from the channels. </p>
@@ -484,7 +517,8 @@
 				x: { attach: ['Popularity'] }
 			}
 		}
-	});
+	},
+							{"run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Using attach &amp; detach makes it easier to build your animated charts step-by-step, however you either have to keep in mind what you had on which channel in 
@@ -509,7 +543,8 @@
 				<script>
 						registry.addSnippet(
 							"0.2.4", 
-							{ title:'My first chart' });
+							{ title:'My first chart' },
+							{"run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Switching on the tooltips that appear on the chart elements when the user hovers 
@@ -527,7 +562,8 @@
 				<script>
 						registry.addSnippet(
 							"0.2.5", 
-							chart => { chart.feature('tooltip',true); return chart; });
+							chart => { chart.feature('tooltip',true); return chart; },
+							{"title":"My first chart","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -558,7 +594,8 @@
 		config: {
 			geometry: 'area'
 		}
-	});
+	},
+							{"title":"Geometry: area","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Drawing a line chart.</p>
@@ -582,7 +619,8 @@
 		config: {
 			geometry: 'line'
 		}
-	});
+	},
+							{"title":"Geometry: line","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Switching the geometry to circle. This setting is the most useful when used 
@@ -607,7 +645,8 @@
 		config: {
 			geometry: 'circle'
 		}
-	});
+	},
+							{"title":"Geometry: circle","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Rectangle geometry is the default setting in Vizzu, used for most common charts 
@@ -632,7 +671,8 @@
 		config: {
 			geometry: 'rectangle'
 		}
-	});
+	},
+							{"title":"Geometry: rectangle - default","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -673,7 +713,8 @@
 				label: { attach: ['Popularity'] }
 			}
 		}
-	});
+	},
+							{"title":"Label","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">The lightness channel sets the lightness of the markers. In this case the same 
@@ -709,7 +750,8 @@
 			},
 			legend: 'lightness'
 		}
-	});
+	},
+							{"title":"Lightness - legend on","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">The color channel sets the color of the markers. The same dimension (Genres) is 
@@ -744,7 +786,8 @@
 			},
 			legend: 'color'
 		}
-	});
+	},
+							{"title":"Color ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">The size channel sets the size of the markers if the geometry is circle - where 
@@ -777,7 +820,8 @@
 			},
 			geometry: 'circle'
 		}
-	});
+	},
+							{"title":"Size - change of geometry required ","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -818,7 +862,8 @@
 				color: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"The wrong way means no animation ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Let’s get back to the original state by removing the extra dimension - Vizzu 
@@ -849,7 +894,8 @@
 				color: { set: null }
 			}
 		}
-	});
+	},
+							{"title":"Let's get back to where we were ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">The right way is to add the new dimension to the same channel where the measure 
@@ -882,7 +928,8 @@
 				color: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"The right way: add to the same channel where the measure is ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">By detaching this newly added dimension from the y-axis and attaching it to the 
@@ -914,7 +961,8 @@
 				x: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"...then you can add it to another channel = group elements...","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">To stack a grouped chart, you just have to do the same thing the other way 
@@ -945,7 +993,8 @@
 				y: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"...doing it the other way is how you stack your chart ","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -978,7 +1027,8 @@
 		config: {
 			sort: 'byValue'
 		}
-	});
+	},
+							{"title":"Switch to ascending order...","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">If you want descending order instead, you have to set the reverse parameter to 
@@ -1004,7 +1054,8 @@
 		config: {
 			reverse: true
 		}
-	});
+	},
+							{"title":"...or descending order.","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">This is how to switch back to the default sorting.</p>
@@ -1030,7 +1081,8 @@
 			sort: 'none',
 			reverse: false
 		}
-	});
+	},
+							{"title":"Let's get back to where we were","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">When you have more than one dimension on a channel, their order determines how 
@@ -1061,7 +1113,8 @@
 				x: { set: ['Genres', 'Types'] }
 			}
 		}
-	});
+	},
+							{"title":"With two discretes on one axis... ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">When switching the order of dimensions on the x-axis Vizzu will rearrange the 
@@ -1090,7 +1143,8 @@
 				x: { set: ['Types', 'Genres'] },
 			}
 		}
-	});
+	},
+							{"title":"...grouping is determined by their order. ","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1126,7 +1180,8 @@
 		config: {
 			align:'center'
 		}
-	});
+	},
+							{"title":"Align: center","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Stretched alignment. This way the elements will proportionally fill the entire 
@@ -1152,7 +1207,8 @@
 		config: {
 			align:'stretch'
 		}
-	});
+	},
+							{"title":"Align: stretch = % view","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Getting back to the default alignment.</p>
@@ -1176,7 +1232,8 @@
 		config: {
 			align:'none'
 		}
-	});
+	},
+							{"title":"Align: none - default","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">You can set the range of an axis by setting the minimum and maximum values of 
@@ -1208,7 +1265,8 @@
 				y: { range: { max: '150%' } }
 			}
 		}
-	});
+	},
+							{"title":"Axis range set proportionally to shown values","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">You can also set the range for an axis with a dimension on it. You can even use 
@@ -1247,7 +1305,8 @@
 				}
 			}
 		}
-	});
+	},
+							{"title":"Axis range set explicitly on an axis with discrete series","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Ranges have certain defaults depending on the chart&#39;s configuration, based on common data viz guidelines because we wanted to make it easy for you to create sleek charts. For example, in the cartesian coordinate system, the range will be automatically set to the max:110% for an axis with a measure on it. Polar coordinates work differently, as you can see for yourself in the <a href="#chapter-0.9">Orientation, split &amp; polar</a> chapter. </p><p class="paragraph">Whenever you want to set your ranges back to the default value, just set them to ‘auto’.</p>
@@ -1295,7 +1354,8 @@
 				}
 			}
 		}
-	});
+	},
+							{"title":"Back to the default ranges","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1336,7 +1396,8 @@
 				x: { set: null }
 			}
 		}
-	});
+	},
+							{"title":"Stack","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">By taking the Genres off of the y-axis, only one chart element remains for every 
@@ -1367,7 +1428,8 @@
 				y: { detach: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"title":"Aggregate elements","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">To drill-down, the same dimension is put back on the y-axis, which results in a 
@@ -1396,7 +1458,8 @@
 				y: { attach: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"title":"Drill-down","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">We group the elements by putting once again the Genres dimension on the x-axis.</p>
@@ -1426,7 +1489,8 @@
 				x: { set: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"title":"Group","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1466,7 +1530,8 @@
 				x: { attach: ['Popularity'] }
 			}
 		}
-	});
+	},
+							{"title":"Switch the orienation = arrange by other axis","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">By turning the split parameter on, you can see stacked elements side-by-side, 
@@ -1491,7 +1556,8 @@
 		config: {
 			split: true
 		}
-	});
+	},
+							{"title":"Split stacked values = show side-by-side","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Merging the components by turning the split parameter off.</p>
@@ -1515,7 +1581,8 @@
 		config: {
 			split: false
 		}
-	});
+	},
+							{"title":"Merge","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">We aggregate the data by removing the Genres dimension from the x-axis.</p>
@@ -1543,7 +1610,8 @@
 				x: { detach: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"title":"Aggregate","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Switching from cartesian coordinates to polar. When doing so, it is worth 
@@ -1570,7 +1638,8 @@
 			channels: { y: { range: { min: '-30%' } } },
 			coordSystem: 'polar'
 		}
-	});
+	},
+							{"title":"Polar coordinates","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1609,7 +1678,8 @@
 				record["Genres"] == 'Pop' 
 				|| record["Genres"] == 'Metal',
 		}
-	});
+	},
+							{"title":"Filter by one dimension","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Now we add a cross-filter that includes items from both the Genres and the Types dimensions. This way we override the filter from the previous state. If we weren&#39;t update the filter, Vizzu would use it in subsequent states.</p>
@@ -1637,7 +1707,8 @@
 				(record["Genres"] == 'Pop' || record["Genres"] == 'Metal') 
 				&& record["Types"] == 'Smooth'
 		}
-	});
+	},
+							{"title":"Filter by two dimensions","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Switching the filter off to get back to the original view.</p>
@@ -1661,7 +1732,8 @@
 		data: {
 			filter: null,
 		}
-	});
+	},
+							{"title":"Filter off","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Here we add another record to the data set and update the chart accordingly.</p>
@@ -1693,7 +1765,8 @@
 			  ['Soul', 'Experimental', 115],
 				] 
 		}
-	});
+	},
+							{"title":"Adding new records","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Note: combining this option with the <a href="#chapter-0.17">store function</a> makes it easy to 
@@ -1738,7 +1811,8 @@
 				size: { attach: ['Genres', 'Popularity'] }
 			}
 		}
-	});
+	},
+							{"title":"Treemap","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Getting from a treemap to a bubble chart is simply by changing the geometry to 
@@ -1764,7 +1838,8 @@
 		config: {
 			geometry: 'circle'
 		}
-	});
+	},
+							{"title":"Bubble chart - stacked","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">In order to show all bubbles as one group, we use the noop (no operations) channel for the Genres dimension. The noop channel enables us to have a dimension on the chart, that doesn’t affect any parameter of the elements, only their count.</p>
@@ -1794,7 +1869,8 @@
 				noop: { set: ['Genres'] }
 			}
 		}
-	});
+	},
+							{"title":"Bubble chart - grouped - using the noop channel","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1843,7 +1919,8 @@
 				}
 			}
 		}
-	});
+	},
+							{"title":"Color palette","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Changing the title font size will only affect the title; all other font sizes remain the same.
@@ -1872,7 +1949,8 @@
 				fontSize: 50
 			}
 		}
-	});
+	},
+							{"title":"Title font size","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">This is how to set the font size back to its default value.</p>
@@ -1900,7 +1978,8 @@
 				fontSize: null
 			}
 		}
-	});
+	},
+							{"title":"Title font size - back to default","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">In case you change the font size of the whole chart with the top-level fontSize 
@@ -1926,7 +2005,8 @@
 		style: {
 			fontSize: 20
 		}
-	});
+	},
+							{"title":"Setting all font sizes in one step","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">You can reset styles to default on any levels by setting them to null. </p>
@@ -1946,7 +2026,8 @@
 							"0.12.5", 
 							{
 		style: null
-	});
+	},
+							{"title":"Setting all style settings back to default","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -1987,7 +2068,8 @@
 			plot: { backgroundColor: '#D2D2D2' },
 			legend: { backgroundColor: '#808080' },
 		}
-	});
+	},
+							{"title":"Plot, title and legend background","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Setting the width of the legend.</p>
@@ -2015,7 +2097,8 @@
 				width: 50
 			}
 		}
-	});
+	},
+							{"title":"Legend width","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Setting the legend width back to its default value.</p>
@@ -2043,7 +2126,8 @@
 				width: null
 			}
 		}
-	});
+	},
+							{"title":"Legend width ","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Changing the title paddings. By default, the title is horizontally centered above the chart. In this example, we set the title’s left padding, resulting in the text moving to the right.</p>
@@ -2075,7 +2159,8 @@
 				paddingLeft: 200
 			}
 		}
-	});
+	},
+							{"title":"Title padding","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Setting the title paddings back to their default values.</p>
@@ -2107,7 +2192,8 @@
 				paddingLeft: null
 			}
 		}
-	});
+	},
+							{"title":"Title padding","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Changing the paddings of the plot area to position the plot. The texts on the 
@@ -2138,7 +2224,8 @@
 				paddingRight: 100
 			}
 		}
-	});
+	},
+							{"title":"Plot padding","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Setting the plot paddings back to their default values.</p>
@@ -2168,7 +2255,8 @@
 				paddingRight: null
 			}
 		}
-	});
+	},
+							{"title":"Plot padding","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -2208,7 +2296,8 @@
 				x: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"Default options - step 1","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">We stack the columns, still with the default options.</p>
@@ -2238,7 +2327,8 @@
 				y: { attach: ['Types'] }
 			}
 		}
-	});
+	},
+							{"title":"Default options - step 2","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Now we change the animation settings for the elements moving along the y-axis 
@@ -2290,7 +2380,8 @@
 			duration: 2, 
 			delay: 4 
 		}
-	});
+	},
+							{"title":"Custom animation settings for specific groups","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">This is an example of changing the settings for the whole animation at once.</p>
@@ -2328,7 +2419,8 @@
 	{ 
 		duration: 1, 
 		easing: 'linear'
-	});
+	},
+							{"title":"Custom options for the whole animation","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">When the two settings are combined, Vizzu will use the general animation 
@@ -2387,7 +2479,8 @@
 			duration: 2, 
 			delay: 4 
 		}
-	});
+	},
+							{"title":"Custom settings for both","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">In case you only want to change the duration of the animation, you can use 
@@ -2420,7 +2513,8 @@
 				y: { attach: ['Types'] }
 			}
 		}
-	}, '500ms');
+	}, '500ms',
+							{"title":"Shorthand for duration","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -2482,7 +2576,8 @@
 		}
 	};
 	
-	chart.on('update', onUpdate);; return chart; });
+	chart.on('update', onUpdate);; return chart; },
+							{"title":"Jumping from 75% to 25% progress during the animation","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -2522,7 +2617,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.1", 
-							chart => { chart.on('click', clickHandler);; return chart; });
+							chart => { chart.on('click', clickHandler);; return chart; },
+							{"title":"Click event added to markers","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Unregistering the previously registered handler.</p>
@@ -2538,7 +2634,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.2", 
-							chart => { chart.off('click', clickHandler);; return chart; });
+							chart => { chart.off('click', clickHandler);; return chart; },
+							{"title":"Click event handler removed","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Here we override the axis label color for &#39;Jazz&#39; to red and all others to gray.</p>
@@ -2570,7 +2667,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.3", 
-							chart => { chart.on('plot-axis-label-draw', labelDrawHandler);; return chart; });
+							chart => { chart.on('plot-axis-label-draw', labelDrawHandler);; return chart; },
+							{"title":"Changing the canvas context before label draw","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Unregistering the previously registered handler.</p>
@@ -2586,7 +2684,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.4", 
-							chart => { chart.off('plot-axis-label-draw', labelDrawHandler);; return chart; });
+							chart => { chart.off('plot-axis-label-draw', labelDrawHandler);; return chart; },
+							{"title":"Restore default behavior","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">The default behaviour of all events can be blocked by calling the event&#39;s
@@ -2617,7 +2716,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.5", 
-							chart => { chart.on('logo-draw', logoDrawHandler);; return chart; });
+							chart => { chart.on('logo-draw', logoDrawHandler);; return chart; },
+							{"title":"Prevent default behavior","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Unregistering the previously registered handler.</p>
@@ -2633,7 +2733,8 @@
 				<script>
 						registry.addSnippet(
 							"0.16.6", 
-							chart => { chart.off('logo-draw', logoDrawHandler);; return chart; });
+							chart => { chart.off('logo-draw', logoDrawHandler);; return chart; },
+							{"title":"Restore default behavior","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
@@ -2666,7 +2767,8 @@
 	// config: {
 		align:'stretch'
 	// }
-	});
+	},
+							{"title":"When only the config property is used","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Let&#39;s save this state by calling the store function. </p>
@@ -2682,7 +2784,8 @@
 				<script>
 						registry.addSnippet(
 							"0.17.2", 
-							chart => { snapshot = chart.store();; return chart; });
+							chart => { snapshot = chart.store();; return chart; },
+							{"title":"Store function","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">If you set/attach/detach just one series on a channel, you don&#39;t have to put that series into an array.</p>
@@ -2712,7 +2815,8 @@
 			y: { detach: 'Types' }
 		},
 		align: 'none'
-	});
+	},
+							{"title":"When just one series is used","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">If you use set on a channel and no other options like range, you don&#39;t have to express that channel as an object. If you only set one series on a channel you can simply write the series&#39; name after the channel name.</p>
@@ -2740,7 +2844,8 @@
 			y: [ 'Types', 'Popularity' ],
 			x: 'Genres'
 		}
-	});
+	},
+							{"title":"When you use set and no other channel options","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">In any case, you can simply omit the the channel object, Vizzu will automatically recognize the channels by their names.</p>
@@ -2766,7 +2871,8 @@
 		y: 'Types',
 		x: ['Genres','Popularity']
 	// }
-	});
+	},
+							{"title":"You don't have to use the channel object","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">Instead of creating nested objects, you can set the styles like this.</p>
@@ -2794,7 +2900,8 @@
 			'plot.xAxis.label.fontSize': '150%',
 			'title.backgroundColor': '#A0A0A0'  
 		}
-	});
+	},
+							{"title":"Shorthand for styles","run":true,"pure":false});
 					</script>
 			</div>
 			<p class="paragraph">This is how you can get back to a state that you previously stored.</p>
@@ -2810,11 +2917,15 @@
 				<script>
 						registry.addSnippet(
 							"0.17.7", 
-							snapshot);
+							snapshot,
+							{"title":"Restoring a previously stored state","run":true,"pure":false});
 					</script>
 			</div>
 			</div>
 	
+	
+				
+
 				<h1>Examples</h1>
 
 				<div data-title="Static charts">
@@ -2822,151 +2933,153 @@
 					<h2 class="subtitle">Static charts</h2>
 					<div class="row mt-4">
 
+
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/histogram_rectangle_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/histogram_rectangle_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/histogram_rectangle_negative_1dis_1con.html" alt="histogram rectangle negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/column_grouped_rectangle_negative_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/column_grouped_rectangle_negative_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/column_grouped_rectangle_negative_2dis_1con.html" alt="column grouped rectangle negative 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/waterfall_rectangle_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/waterfall_rectangle_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/waterfall_rectangle_negative_1dis_1con.html" alt="waterfall rectangle negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/column_stacked_rectangle_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/column_stacked_rectangle_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/column_stacked_rectangle_1dis_1con.html" alt="column stacked rectangle 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/column_stacked_rectangle_negative_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/column_stacked_rectangle_negative_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/column_stacked_rectangle_negative_2dis_1con.html" alt="column stacked rectangle negative 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/bar_rectangle_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/bar_rectangle_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/bar_rectangle_negative_1dis_1con.html" alt="bar rectangle negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/stacked_mekko_rectangle_2dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/stacked_mekko_rectangle_2dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/stacked_mekko_rectangle_2dis_2con.html" alt="stacked mekko rectangle 2dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/mekko_rectangle_1dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/mekko_rectangle_1dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/mekko_rectangle_1dis_2con.html" alt="mekko rectangle 1dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/marimekko_rectangle_2dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/marimekko_rectangle_2dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/marimekko_rectangle_2dis_2con.html" alt="marimekko rectangle 2dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/pie_rectangle_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/pie_rectangle_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/pie_rectangle_1dis_1con.html" alt="pie rectangle 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/donut_rectangle_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/donut_rectangle_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/donut_rectangle_1dis_1con.html" alt="donut rectangle 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/coxcomb_stacked_rectangle_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/coxcomb_stacked_rectangle_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/coxcomb_stacked_rectangle_2dis_1con.html" alt="coxcomb stacked rectangle 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/radial_rectangle_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/radial_rectangle_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/radial_rectangle_1dis_1con.html" alt="radial rectangle 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/radial_stacked_rectangle_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/radial_stacked_rectangle_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/radial_stacked_rectangle_2dis_1con.html" alt="radial stacked rectangle 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/treemap_rectangle_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/treemap_rectangle_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/treemap_rectangle_1dis_1con.html" alt="treemap rectangle 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/treemap_rectangle_2dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/treemap_rectangle_2dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/treemap_rectangle_2dis_2con.html" alt="treemap rectangle 2dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/line_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/line_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/line_negative_1dis_1con.html" alt="line negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/line_negative_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/line_negative_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/line_negative_2dis_1con.html" alt="line negative 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/spiderweb_line_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/spiderweb_line_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/spiderweb_line_1dis_1con.html" alt="spiderweb line 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/NO_spiderweb_line_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/NO_spiderweb_line_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/NO_spiderweb_line_2dis_1con.html" alt="NO spiderweb line 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/area_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/area_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/area_negative_1dis_1con.html" alt="area negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/stacked_area_2dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/stacked_area_2dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/stacked_area_2dis_1con.html" alt="stacked area 2dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/stream_stacked_area_3dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/stream_stacked_area_3dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/stream_stacked_area_3dis_1con.html" alt="stream stacked area 3dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/spiderweb_area_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/spiderweb_area_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/spiderweb_area_1dis_1con.html" alt="spiderweb area 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/dotplot_circle_negative_1dis_1con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/dotplot_circle_negative_1dis_1con.html" alt="Histogram">
+								data-target="content/examples/static/dotplot_circle_negative_1dis_1con.html" alt="dotplot circle negative 1dis 1con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/scatterplot_circle_negative_1dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/scatterplot_circle_negative_1dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/scatterplot_circle_negative_1dis_2con.html" alt="scatterplot circle negative 1dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/scatterplot_circle_negative_2dis_3con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/scatterplot_circle_negative_2dis_3con.html" alt="Histogram">
+								data-target="content/examples/static/scatterplot_circle_negative_2dis_3con.html" alt="scatterplot circle negative 2dis 3con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/bubble_circle_1dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/bubble_circle_1dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/bubble_circle_1dis_2con.html" alt="bubble circle 1dis 2con">
 						</div>
 					
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-static-card">
 							<img src="content/examples/static/bubble_circle_2dis_2con.png" class="thumbnail-static action-static-example"
-								data-target="content/examples/static/bubble_circle_2dis_2con.html" alt="Histogram">
+								data-target="content/examples/static/bubble_circle_2dis_2con.html" alt="bubble circle 2dis 2con">
 						</div>
-					
+
+
 					</div>
 				</div>
 
@@ -2979,7 +3092,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/composition_comparison_pie_coxcomb_column_2dis_2con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="composition comparison pie coxcomb column 2dis 2con" data-spy="scroll">
 								<source src="content/examples/animated/composition_comparison_pie_coxcomb_column_2dis_2con.webm" type="video/webm">
 								<source src="content/examples/animated/composition_comparison_pie_coxcomb_column_2dis_2con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -2989,7 +3102,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/composition_percentage_column_stream_3dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="composition percentage column stream 3dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/composition_percentage_column_stream_3dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/composition_percentage_column_stream_3dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -2999,7 +3112,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/merge_split_area_stream_3dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="merge split area stream 3dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/merge_split_area_stream_3dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/merge_split_area_stream_3dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3009,7 +3122,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/total_element_bubble_2_bar.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="total element bubble 2 bar" data-spy="scroll">
 								<source src="content/examples/animated/total_element_bubble_2_bar.webm" type="video/webm">
 								<source src="content/examples/animated/total_element_bubble_2_bar.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3019,7 +3132,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/merge_split_bar.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="merge split bar" data-spy="scroll">
 								<source src="content/examples/animated/merge_split_bar.webm" type="video/webm">
 								<source src="content/examples/animated/merge_split_bar.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3029,7 +3142,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/merge_split_radial_stacked_rectangle_2dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="merge split radial stacked rectangle 2dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/merge_split_radial_stacked_rectangle_2dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/merge_split_radial_stacked_rectangle_2dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3039,7 +3152,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/orientation_circle.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="orientation circle" data-spy="scroll">
 								<source src="content/examples/animated/orientation_circle.webm" type="video/webm">
 								<source src="content/examples/animated/orientation_circle.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3049,7 +3162,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/orientation_marimekko_rectangle_2dis_2con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="orientation marimekko rectangle 2dis 2con" data-spy="scroll">
 								<source src="content/examples/animated/orientation_marimekko_rectangle_2dis_2con.webm" type="video/webm">
 								<source src="content/examples/animated/orientation_marimekko_rectangle_2dis_2con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3059,7 +3172,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/pie_donut2_rectangle_1dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="pie donut2 rectangle 1dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/pie_donut2_rectangle_1dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/pie_donut2_rectangle_1dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3069,7 +3182,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/relationship_comparison_circle_2_bubble_plot.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="relationship comparison circle 2 bubble plot" data-spy="scroll">
 								<source src="content/examples/animated/relationship_comparison_circle_2_bubble_plot.webm" type="video/webm">
 								<source src="content/examples/animated/relationship_comparison_circle_2_bubble_plot.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3079,7 +3192,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/relationship_total_bubble_plot_column.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="relationship total bubble plot column" data-spy="scroll">
 								<source src="content/examples/animated/relationship_total_bubble_plot_column.webm" type="video/webm">
 								<source src="content/examples/animated/relationship_total_bubble_plot_column.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3089,7 +3202,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/stack_group_area_line.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="stack group area line" data-spy="scroll">
 								<source src="content/examples/animated/stack_group_area_line.webm" type="video/webm">
 								<source src="content/examples/animated/stack_group_area_line.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3099,7 +3212,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/stack_group_circle.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="stack group circle" data-spy="scroll">
 								<source src="content/examples/animated/stack_group_circle.webm" type="video/webm">
 								<source src="content/examples/animated/stack_group_circle.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3109,7 +3222,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/stack_group_treemap.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="stack group treemap" data-spy="scroll">
 								<source src="content/examples/animated/stack_group_treemap.webm" type="video/webm">
 								<source src="content/examples/animated/stack_group_treemap.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3119,7 +3232,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/total_element_bubble_column.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="total element bubble column" data-spy="scroll">
 								<source src="content/examples/animated/total_element_bubble_column.webm" type="video/webm">
 								<source src="content/examples/animated/total_element_bubble_column.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3129,7 +3242,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/total_time_area_column.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="total time area column" data-spy="scroll">
 								<source src="content/examples/animated/total_time_area_column.webm" type="video/webm">
 								<source src="content/examples/animated/total_time_area_column.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3139,7 +3252,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/treemap_radial.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="treemap radial" data-spy="scroll">
 								<source src="content/examples/animated/treemap_radial.webm" type="video/webm">
 								<source src="content/examples/animated/treemap_radial.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3149,7 +3262,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/zoom_area.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="zoom area" data-spy="scroll">
 								<source src="content/examples/animated/zoom_area.webm" type="video/webm">
 								<source src="content/examples/animated/zoom_area.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3159,7 +3272,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/composition_percentage_column_3dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="composition percentage column 3dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/composition_percentage_column_3dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/composition_percentage_column_3dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3169,7 +3282,7 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/total_time_bar_line.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="total time bar line" data-spy="scroll">
 								<source src="content/examples/animated/total_time_bar_line.webm" type="video/webm">
 								<source src="content/examples/animated/total_time_bar_line.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -3179,12 +3292,13 @@
 						<div class="col-6 col-sm-4 col-xl-3 mb-4 thumbnail-animated-card">
 							<video class="thumbnail-animated action-animated-example" nocontrols="true" autoplay="true"
 								muted="true" loop="true" data-target="content/examples/animated/merge_split_area_stream_2dis_1con.html"
-								data-title="Pie and Coxcomb" data-spy="scroll">
+								data-title="merge split area stream 2dis 1con" data-spy="scroll">
 								<source src="content/examples/animated/merge_split_area_stream_2dis_1con.webm" type="video/webm">
 								<source src="content/examples/animated/merge_split_area_stream_2dis_1con.mp4" type="video/mp4">
 								Your browser does not support the video tag.
 							</video>
 						</div>
+
 
 					</div>
 				</div>
