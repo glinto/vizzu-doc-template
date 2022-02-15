@@ -294,6 +294,14 @@ td {
 	font-family: 'Roboto';
 }
 
+.width-protect {
+	display: grid;
+    overflow-x: auto;
+    width: 0;
+    min-width: 100%;
+    max-width: 100%;
+}
+
 .snippet {
 	width: 100%;
 	display: grid;
