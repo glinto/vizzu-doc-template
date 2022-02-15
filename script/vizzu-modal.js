@@ -15,8 +15,8 @@ export default class VizzuModal extends HTMLElement {
 					<h2 class="mt-0 mb-2 me-2 ellipses text-dark">Modal title</h2>
 					<div class="mb-2 d-flex">
 						<img class="c-pointer me-2" src="images/edit_black_24dp.svg" alt="Edit" height="24" data-action="edit">
-						<img class="c-pointer me-2" src="images/replay_black_24dp.svg" alt="Replay" height="24" data-action="replay">
-						<img class="c-pointer" src="images/close_black_24dp.svg" alt="Close" height="24" data-action="close">
+						<img class="c-pointer ms-1 me-2" src="images/replay_black_24dp.svg" alt="Replay" height="24" data-action="replay">
+						<img class="c-pointer ms-1" src="images/close_black_24dp.svg" alt="Close" height="24" data-action="close">
 					</div>
 					
 				</div>
