@@ -28,7 +28,7 @@ class SnippetRegistry {
 				.then(() => {
 					// we can now show the chart as it transitions to the target state
 					this.snippetPlayerChart.classList.remove('opacity-0');
-					return this.playState(this.snippets[major][minor].fn, '500ms');
+					return this.playState(this.snippets[major][minor].fn, '1500ms');
 				})
 				.then(() => {
 					// Save the result as the base state of the next step (if exists)
@@ -81,7 +81,7 @@ class SnippetRegistry {
 				// for the last step we show the chart
 				// and use normal anim speed
 				this.snippetPlayerChart.classList.remove('opacity-0');
-				animSpeed = '1000ms';
+				animSpeed = '1500ms';
 			}
 
 			await this.playState(this.snippets[major][minor].fn, animSpeed);
