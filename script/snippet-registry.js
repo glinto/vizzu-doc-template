@@ -81,7 +81,7 @@ class SnippetRegistry {
 				// for the last step we show the chart
 				// and use normal anim speed
 				this.snippetPlayerChart.classList.remove('opacity-0');
-				animSpeed = '500ms';
+				animSpeed = '1000ms';
 			}
 
 			await this.playState(this.snippets[major][minor].fn, animSpeed);
