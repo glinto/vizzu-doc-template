@@ -316,6 +316,15 @@ td {
 	word-wrap: break-word;
 }
 
+.snippet-player-chart-ready:before {
+	content: 'Tap to replay';
+	color: #4171CD;
+	font-size: 10px;
+	position: absolute;
+	width: 100%;
+	text-align: right;
+}
+
 .snippet-player {
 	box-sizing: border-box;
 	width: 100%;

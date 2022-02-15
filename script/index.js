@@ -15,6 +15,11 @@ export default class VizzuDocumentation {
 
 		this.snippetPlayerChart = document.createElement('snippet-player-chart');
 		this.snippetPlayerChart.classList.add('snippet-player-chart');
+		this.snippetPlayerChart.addEventListener('click', () => {
+			if (this.snippetPlayerChart.classList.contains('snippet-player-chart-ready')) {
+				registry.playSnippet(this.snippetPlayerChart.dataset.semver);
+			}
+		});
 
 		// Update snippet players on scroll
 		this.context.addEventListener('debounce-scroll', (event) => {

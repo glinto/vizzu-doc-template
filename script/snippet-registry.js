@@ -18,6 +18,9 @@ class SnippetRegistry {
 		if (this.snippets[major] === undefined) return Promise.reject('Unknown major');
 		if (this.snippets[major][minor] === undefined) return Promise.reject('Unknown minor');
 
+		// Remove the chart-ready class
+		this.snippetPlayerChart.classList.remove('snippet-player-chart-ready');
+
 		// If we already have a base state from where we want to animate the chart
 		// we use that, otherwise we need to incemental build the state
 		if (this.snippets[major][minor].baseState !== undefined) {
@@ -31,6 +34,11 @@ class SnippetRegistry {
 					return this.playState(this.snippets[major][minor].fn, '1500ms');
 				})
 				.then(() => {
+					// Add the ready class
+					this.snippetPlayerChart.classList.add('snippet-player-chart-ready');
+					// Store the semver state in the chart
+					this.snippetPlayerChart.dataset.semver = semver;
+
 					// Save the result as the base state of the next step (if exists)
 					if (this.snippets[major][minor + 1] !== undefined) {
 						this.snippets[major][minor + 1].baseState = this.snippetPlayerChart.chart.config;
@@ -67,6 +75,12 @@ class SnippetRegistry {
 		// Hide the chart until we build the base state
 		this.snippetPlayerChart.classList.add('opacity-0');
 
+		// Remove ready class
+		this.snippetPlayerChart.classList.remove('snippet-player-chart-ready');
+
+		// Store the semver state in the chart
+		this.snippetPlayerChart.dataset.semver = `0.${major}.${minorTo}`;
+
 		let animSpeed = '10ms';
 
 		// Wait for the cahrt to be initialized
@@ -85,6 +99,11 @@ class SnippetRegistry {
 			}
 
 			await this.playState(this.snippets[major][minor].fn, animSpeed);
+
+			// Add the ready class
+			this.snippetPlayerChart.classList.add('snippet-player-chart-ready');
+			// Store the semver state in the chart
+			this.snippetPlayerChart.dataset.semver = `0.${major}.${minor}`;
 
 			// Save the result as the base state of the next step (if exists)
 			if (this.snippets[major][minor + 1] !== undefined) {
