@@ -172,6 +172,16 @@ html:not([data-scroll='0']) .vizzu-sidebar {
 }
 
 /* Styling sidebar links */
+
+.vizzu-sidebar > ul > li {
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+
+.vizzu-sidebar > ul > li > ul {
+	text-transform: none;
+}
+
 .vizzu-sidebar li,
 .vizzu-sidebar a {
 	color: var(--bs-gray-500);
