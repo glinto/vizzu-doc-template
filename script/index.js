@@ -26,6 +26,9 @@ export default class VizzuDocumentation {
 				this.toggleSideBar();
 				event.preventDefault();
 			});
+			window.addEventListener('resize', () => {
+				this.resizeActiveSnippet();
+			});
 			/*
 			document.querySelector('.action-dark-mode-toogle').addEventListener('click', (event) => {
 				this.toggleDarkMode();
@@ -55,6 +58,19 @@ export default class VizzuDocumentation {
 				});
 			});
 		});
+	}
+
+	resizeActiveSnippet() {
+		if (this.activeSnippet) {
+			let img = this.activeSnippet.querySelector('img');
+			let rect = img.getBoundingClientRect();
+
+			this.snippetPlayerChart.style.height = rect.height + 'px';
+			this.snippetPlayerChart.style.width = rect.width + 'px';
+			this.snippetPlayerChart.style.top = (rect.top + scrollY) + 'px';
+			this.snippetPlayerChart.style.left = rect.left + 'px';
+		}
+
 	}
 
 	updateActiveSnippet(scrollY) {
