@@ -3,6 +3,8 @@ import ScrollSpy from "./scrollspy.js";
 export default class VizzuDocumentation {
 
 	constructor(context) {
+		this.playTimeout = undefined;
+
 		this.context = context;
 		if (localStorage.getItem('theme-dark') === 'true') {
 			document.documentElement.classList.add('theme-dark');
@@ -23,7 +25,11 @@ export default class VizzuDocumentation {
 
 		// Update snippet players on scroll
 		this.context.addEventListener('debounce-scroll', (event) => {
-			this.updateActiveSnippet(event.detail.scrollY);
+			if (this.playTimeout) clearTimeout(this.playTimeout);
+			this.playTimeout = setTimeout(() => {
+				this.playTimeout = undefined;
+				this.updateActiveSnippet(event.detail.scrollY);
+			}, 300);
 		});
 
 		document.addEventListener("DOMContentLoaded", (event) => {
@@ -103,7 +109,7 @@ export default class VizzuDocumentation {
 			let rect = img.getBoundingClientRect();
 			this.snippetPlayerChart.style.height = rect.height + 'px';
 			this.snippetPlayerChart.style.width = rect.width + 'px';
-			this.snippetPlayerChart.style.top = (rect.top + scrollY) + 'px';
+			this.snippetPlayerChart.style.top = (rect.top + window.scrollY) + 'px';
 			this.snippetPlayerChart.style.left = rect.left + 'px';
 			selectedSnippet.appendChild(this.snippetPlayerChart);
 			img.classList.add('invisible');
