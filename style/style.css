@@ -7,6 +7,13 @@
   * =======================
   */
 
+:root {
+	/* Override bootstrap body font */
+	--bs-font-sans-serif: Roboto, "Helvetica Neue", Arial;
+	--bs-body-font-family: Roboto, "Helvetica Neue", Arial;
+	--bs-body-font-size: 15px;
+}
+
 html {
 	/* Set a variable for the sidebar width */
 	--sidebar-width: 250px;
@@ -15,8 +22,7 @@ html {
 	--bs-dark-rgb: 48, 48, 48;
 	--bs-primary: #4171cd;
 	--bs-primary-rgb: 0, 133, 197;
-	/* Override bootstrap body font */
-	--bs-font-sans-serif: Roboto, "Helvetica Neue", Arial;
+	
 	--bs-body-bg: #fff;
 	--bs-body-bg-alternate: #f8f9fa;
 	--bs-body-color: #212529;
